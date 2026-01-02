@@ -1,0 +1,81 @@
+/* Custom styles for Lumber Inventory */
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+.lumber-card {
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.lumber-card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.navbar-brand i {
+    color: #28a745;
+}
+
+.badge {
+    font-weight: 500;
+}
+
+@media (max-width: 767.98px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .btn-group .btn {
+        padding: 0.375rem 0.5rem;
+    }
+}
+
+.table th {
+    white-space: nowrap;
+}
+
+.form-label {
+    font-weight: 500;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+/* Tag styles */
+.tag-badge {
+    margin-right: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.card-header .tag-badge {
+    font-size: 0.75rem;
+}
+
+/* Multi-select styling for tags */
+select[multiple].form-select {
+    height: auto;
+}
+
+select[multiple].form-select option {
+    padding: 0.5rem;
+}
+
+select[multiple].form-select option:checked {
+    background-color: #ffc107;
+    color: #212529;
+}

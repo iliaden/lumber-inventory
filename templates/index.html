@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+
+{% block title %}Lumber Inventory{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col">
+        <h1><i class="bi bi-boxes"></i> Lumber Inventory</h1>
+    </div>
+    <div class="col-auto">
+        <a href="{{ url_for('add_lumber') }}" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> Add Lumber
+        </a>
+    </div>
+</div>
+
+<!-- Search/Filter Form -->
+<div class="card mb-4">
+    <div class="card-header">
+        <a class="text-decoration-none" data-bs-toggle="collapse" href="#searchCollapse">
+            <i class="bi bi-search"></i> Search & Filter
+        </a>
+    </div>
+    <div class="collapse show" id="searchCollapse">
+        <div class="card-body">
+            <form method="GET" action="{{ url_for('index') }}">
+                <div class="row g-3">
+                    <div class="col-md-4 col-6">
+                        {{ form.species(class="form-control", placeholder="Species") }}
+                    </div>
+                    <div class="col-md-4 col-6">
+                        {{ form.location(class="form-select") }}
+                    </div>
+                    <div class="col-md-4 col-6">
+                        {{ form.planed(class="form-select") }}
+                    </div>
+                    <div class="col-md-3 col-6">
+                        {{ form.min_length(class="form-control", placeholder="Min Length") }}
+                    </div>
+                    <div class="col-md-3 col-6">
+                        {{ form.max_length(class="form-control", placeholder="Max Length") }}
+                    </div>
+                    <div class="col-md-3 col-6">
+                        {{ form.tag(class="form-select") }}
+                    </div>
+                    <div class="col-md-3 col-12">
+                        <button type="submit" class="btn btn-secondary">
+                            <i class="bi bi-search"></i> Search
+                        </button>
+                        <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">
+                            <i class="bi bi-x-circle"></i> Clear
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Results Count -->
+<p class="text-muted">
+    <strong>{{ lumber_items|length }}</strong> item(s) found
+</p>
+
+<!-- Inventory Table (Desktop) -->
+<div class="table-responsive d-none d-md-block">
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Species</th>
+                <th>Dimensions (L×W×T)</th>
+                <th>Surface</th>
+                <th>Location</th>
+                <th>Tags</th>
+                <th>Added</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in lumber_items %}
+            <tr>
+                <td><strong>{{ item.species }}</strong></td>
+                <td>{{ item.length }}" × {{ item.width }}" × {{ item.thickness }}"</td>
+                <td>
+                    {% if item.planed %}
+                        <span class="badge bg-success">Planed</span>
+                    {% else %}
+                        <span class="badge bg-secondary">Rough</span>
+                    {% endif %}
+                </td>
+                <td>
+                    {% if item.location %}
+                        <span class="badge bg-info">{{ item.location }}</span>
+                    {% else %}
+                        <span class="text-muted">—</span>
+                    {% endif %}
+                </td>
+                <td>
+                    {% for tag in item.tags %}
+                        <span class="badge bg-warning text-dark tag-badge">{{ tag.name }}</span>
+                    {% endfor %}
+                </td>
+                <td>{{ item.date_added.strftime('%Y-%m-%d') }}</td>
+                <td>
+                    <a href="{{ url_for('edit_lumber', id=item.id) }}" class="btn btn-sm btn-outline-primary">
+                        <i class="bi bi-pencil"></i>
+                    </a>
+                    <form action="{{ url_for('delete_lumber', id=item.id) }}" method="POST" class="d-inline"
+                          onsubmit="return confirm('Delete this lumber?');">
+                        <button type="submit" class="btn btn-sm btn-outline-danger">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="7" class="text-center text-muted">No lumber found. Add some!</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Inventory Cards (Mobile) -->
+<div class="d-md-none">
+    {% for item in lumber_items %}
+    <div class="card mb-3 lumber-card">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-start">
+                <h5 class="card-title mb-1">{{ item.species }}</h5>
+                {% if item.location %}
+                    <span class="badge bg-info">{{ item.location }}</span>
+                {% endif %}
+            </div>
+            <p class="card-text mb-2">
+                <strong>{{ item.length }}" × {{ item.width }}" × {{ item.thickness }}"</strong>
+            </p>
+            <p class="card-text">
+                {% if item.planed %}
+                    <span class="badge bg-success">Planed</span>
+                {% else %}
+                    <span class="badge bg-secondary">Rough</span>
+                {% endif %}
+                <small class="text-muted ms-2">Added {{ item.date_added.strftime('%Y-%m-%d') }}</small>
+            </p>
+            {% if item.tags %}
+            <p class="card-text mb-2">
+                {% for tag in item.tags %}
+                    <span class="badge bg-warning text-dark tag-badge">{{ tag.name }}</span>
+                {% endfor %}
+            </p>
+            {% endif %}
+            <div class="btn-group" role="group">
+                <a href="{{ url_for('edit_lumber', id=item.id) }}" class="btn btn-outline-primary btn-sm">
+                    <i class="bi bi-pencil"></i> Edit
+                </a>
+                <form action="{{ url_for('delete_lumber', id=item.id) }}" method="POST" class="d-inline"
+                      onsubmit="return confirm('Delete this lumber?');">
+                    <button type="submit" class="btn btn-outline-danger btn-sm">
+                        <i class="bi bi-trash"></i> Delete
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="text-center text-muted py-4">
+        <i class="bi bi-inbox display-4"></i>
+        <p>No lumber found. Add some!</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

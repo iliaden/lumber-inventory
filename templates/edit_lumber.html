@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Lumber{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col">
+        <h1><i class="bi bi-pencil"></i> Edit Lumber</h1>
+        <p class="text-muted">Editing: {{ lumber.species }} (ID: {{ lumber.id }})</p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form method="POST" action="{{ url_for('edit_lumber', id=lumber.id) }}">
+            {{ form.hidden_tag() }}
+
+            <div class="mb-3">
+                <label for="species" class="form-label">Species *</label>
+                {{ form.species(class="form-select" + (" is-invalid" if form.species.errors else "")) }}
+                {% if form.species.errors %}
+                    <div class="invalid-feedback">{{ form.species.errors[0] }}</div>
+                {% endif %}
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    <div class="mb-3">
+                        <label for="length" class="form-label">Length (in) *</label>
+                        {{ form.length(class="form-control" + (" is-invalid" if form.length.errors else ""), type="number", step="0.125") }}
+                        {% if form.length.errors %}
+                            <div class="invalid-feedback">{{ form.length.errors[0] }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="mb-3">
+                        <label for="width" class="form-label">Width (in) *</label>
+                        {{ form.width(class="form-control" + (" is-invalid" if form.width.errors else ""), type="number", step="0.125") }}
+                        {% if form.width.errors %}
+                            <div class="invalid-feedback">{{ form.width.errors[0] }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="mb-3">
+                        <label for="thickness" class="form-label">Thickness (in) *</label>
+                        {{ form.thickness(class="form-control" + (" is-invalid" if form.thickness.errors else ""), type="number", step="0.125") }}
+                        {% if form.thickness.errors %}
+                            <div class="invalid-feedback">{{ form.thickness.errors[0] }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label d-block">Surface</label>
+                <div class="form-check form-switch mt-2">
+                    {{ form.planed(class="form-check-input") }}
+                    <label class="form-check-label" for="planed">Planed (checked) / Rough (unchecked)</label>
+                </div>
+            </div>
+
+            <!-- Location Section -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="bi bi-geo-alt"></i> Location
+                    {% if lumber.location %}
+                    <span class="float-end">
+                        Current: <span class="badge bg-info">{{ lumber.location }}</span>
+                    </span>
+                    {% endif %}
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="location" class="form-label">Existing Locations</label>
+                                {{ form.location(class="form-select") }}
+                                <small class="form-text text-muted">Select an existing location</small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="new_location" class="form-label">Create New Location</label>
+                                {{ form.new_location(class="form-control") }}
+                                <small class="form-text text-muted">Or enter a new location name</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tags Section -->
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="bi bi-tags"></i> Tags
+                    {% if lumber.tags %}
+                    <span class="float-end">
+                        Current:
+                        {% for tag in lumber.tags %}
+                            <span class="badge bg-warning text-dark">{{ tag.name }}</span>
+                        {% endfor %}
+                    </span>
+                    {% endif %}
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="tags" class="form-label">Existing Tags</label>
+                                {{ form.tags(class="form-select", size="4") }}
+                                <small class="form-text text-muted">Hold Ctrl/Cmd to select multiple tags</small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="new_tags" class="form-label">Create New Tags</label>
+                                {{ form.new_tags(class="form-control") }}
+                                <small class="form-text text-muted">Enter new tags separated by commas</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">
+                    <i class="bi bi-x-circle"></i> Cancel
+                </a>
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-check-circle"></i> Save Changes
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="card mt-4 border-danger">
+    <div class="card-header bg-danger text-white">
+        <i class="bi bi-exclamation-triangle"></i> Danger Zone
+    </div>
+    <div class="card-body">
+        <p class="mb-3">Permanently delete this lumber entry. This action cannot be undone.</p>
+        <form action="{{ url_for('delete_lumber', id=lumber.id) }}" method="POST"
+              onsubmit="return confirm('Are you sure you want to delete this lumber? This cannot be undone.');">
+            <button type="submit" class="btn btn-danger">
+                <i class="bi bi-trash"></i> Delete Lumber
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}
