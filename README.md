@@ -95,23 +95,6 @@ lumber-inventory/
 
 The SQLite database will be created automatically on first run.
 
-### Migrating from Previous Version
-
-If you have an existing database with the old `shelf` field (A-F), run the migration script:
-
-```bash
-python migrate_shelf_to_location.py
-```
-
-This will:
-- Create a backup of your database
-- Create the new `location` table
-- Convert existing shelf values (e.g., "A") to location entries (e.g., "Shelf A")
-- Update all lumber items to reference the new locations
-- Remove the old shelf column
-
-The migration is safe to run multiple times - it will detect if already migrated.
-
 ## Accessing from Your Phone
 
 1. Ensure your phone is connected to the same WiFi network as the computer/Raspberry Pi
