@@ -127,6 +127,8 @@ class SearchForm(FlaskForm):
         coerce=str,
         validators=[Optional()],
     )
-    min_length = FloatField("Min Length", validators=[NumberRange(min=0)], default=None)
-    max_length = FloatField("Max Length", validators=[NumberRange(min=0)], default=None)
+    min_length = StringField("Min Length", validators=[Optional()])
+    max_length = StringField("Max Length", validators=[Optional()])
+    min_thickness = StringField("Min Thickness", validators=[Optional()])
+    max_thickness = StringField("Max Thickness", validators=[Optional()])
     submit = SubmitField("Search")

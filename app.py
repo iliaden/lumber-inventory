@@ -65,15 +65,29 @@ def index():
 
     if request.args.get("min_length"):
         try:
-            min_len = float(request.args.get("min_length"))
+            min_len = parse_fraction_string(request.args.get("min_length"))
             query = query.filter(Lumber.length >= min_len)
         except ValueError:
             pass
 
     if request.args.get("max_length"):
         try:
-            max_len = float(request.args.get("max_length"))
+            max_len = parse_fraction_string(request.args.get("max_length"))
             query = query.filter(Lumber.length <= max_len)
+        except ValueError:
+            pass
+
+    if request.args.get("min_thickness"):
+        try:
+            min_thick = parse_fraction_string(request.args.get("min_thickness"))
+            query = query.filter(Lumber.thickness >= min_thick)
+        except ValueError:
+            pass
+
+    if request.args.get("max_thickness"):
+        try:
+            max_thick = parse_fraction_string(request.args.get("max_thickness"))
+            query = query.filter(Lumber.thickness <= max_thick)
         except ValueError:
             pass
 
