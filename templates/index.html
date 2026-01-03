@@ -80,7 +80,7 @@
             {% for item in lumber_items %}
             <tr>
                 <td><strong>{{ item.species }}</strong></td>
-                <td>{{ item.length }}" × {{ item.width }}" × {{ item.thickness }}"</td>
+                <td>{{ item.length|fraction }}" × {{ item.width|fraction }}" × {{ item.thickness|fraction }}"</td>
                 <td>
                     {% if item.planed %}
                         <span class="badge bg-success">Planed</span>
@@ -134,7 +134,7 @@
                 {% endif %}
             </div>
             <p class="card-text mb-2">
-                <strong>{{ item.length }}" × {{ item.width }}" × {{ item.thickness }}"</strong>
+                <strong>{{ item.length|fraction }}" × {{ item.width|fraction }}" × {{ item.thickness|fraction }}"</strong>
             </p>
             <p class="card-text">
                 {% if item.planed %}

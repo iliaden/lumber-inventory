@@ -2,6 +2,7 @@ import os
 
 from flask import flash, Flask, jsonify, redirect, render_template, request, url_for
 from forms import LumberForm, SearchForm
+from fractions_utils import float_to_fraction_display, parse_fraction_string
 from models import db, Location, Lumber, Tag
 
 app = Flask(__name__)
@@ -12,6 +13,13 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///inventory.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db.init_app(app)
+
+
+@app.template_filter("fraction")
+def fraction_filter(value):
+    """Jinja2 filter to convert float to fraction display."""
+    return float_to_fraction_display(value)
+
 
 with app.app_context():
     db.create_all()
@@ -118,9 +126,9 @@ def add_lumber():
     if form.validate_on_submit():
         lumber = Lumber(
             species=form.species.data,
-            length=form.length.data,
-            width=form.width.data,
-            thickness=form.thickness.data,
+            length=parse_fraction_string(form.length.data),
+            width=parse_fraction_string(form.width.data),
+            thickness=parse_fraction_string(form.thickness.data),
             planed=form.planed.data,
         )
 
@@ -173,12 +181,16 @@ def edit_lumber(id):
         form.tags.data = [t.id for t in lumber.tags]
         # Pre-select current location
         form.location.data = lumber.location_id if lumber.location_id else 0
+        # Convert dimensions to fraction strings for display
+        form.length.data = float_to_fraction_display(lumber.length)
+        form.width.data = float_to_fraction_display(lumber.width)
+        form.thickness.data = float_to_fraction_display(lumber.thickness)
 
     if form.validate_on_submit():
         lumber.species = form.species.data
-        lumber.length = form.length.data
-        lumber.width = form.width.data
-        lumber.thickness = form.thickness.data
+        lumber.length = parse_fraction_string(form.length.data)
+        lumber.width = parse_fraction_string(form.width.data)
+        lumber.thickness = parse_fraction_string(form.thickness.data)
         lumber.planed = form.planed.data
 
         # Handle location - prefer new location if provided, otherwise use selected

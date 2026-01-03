@@ -7,7 +7,32 @@ from wtforms import (
     StringField,
     SubmitField,
 )
-from wtforms.validators import DataRequired, Length, NumberRange, Optional
+from wtforms.validators import DataRequired, Length, NumberRange, Optional, ValidationError
+
+from fractions_utils import parse_fraction_string, float_to_fraction_display
+
+
+class FractionValidator:
+    """Validator that accepts fractions like '1 3/4' or '3/4' as well as decimals."""
+
+    def __init__(self, min_value=None, message=None):
+        self.min_value = min_value
+        self.message = message
+
+    def __call__(self, form, field):
+        if not field.data or field.data.strip() == "":
+            raise ValidationError("This field is required.")
+
+        try:
+            value = parse_fraction_string(field.data)
+            if self.min_value is not None and value < self.min_value:
+                raise ValidationError(
+                    self.message or f"Value must be at least {self.min_value}."
+                )
+        except ValueError as e:
+            raise ValidationError(
+                f"Invalid format. Enter a number (e.g., 1.5) or fraction (e.g., 1 1/2)."
+            )
 
 
 # 30 most common wood species used in North American woodworking
@@ -44,20 +69,20 @@ class LumberForm(FlaskForm):
         choices=SPECIES_CHOICES,
         validators=[DataRequired()],
     )
-    length = FloatField(
+    length = StringField(
         "Length (inches)",
-        validators=[DataRequired(), NumberRange(min=0.1)],
-        render_kw={"placeholder": "Length in inches"},
+        validators=[FractionValidator(min_value=0.1)],
+        render_kw={"placeholder": "e.g., 48 or 48 1/2"},
     )
-    width = FloatField(
+    width = StringField(
         "Width (inches)",
-        validators=[DataRequired(), NumberRange(min=0.1)],
-        render_kw={"placeholder": "Width in inches"},
+        validators=[FractionValidator(min_value=0.1)],
+        render_kw={"placeholder": "e.g., 6 or 5 3/4"},
     )
-    thickness = FloatField(
+    thickness = StringField(
         "Thickness (inches)",
-        validators=[DataRequired(), NumberRange(min=0.1)],
-        render_kw={"placeholder": "Thickness in inches"},
+        validators=[FractionValidator(min_value=0.1)],
+        render_kw={"placeholder": "e.g., 1 or 3/4"},
     )
     planed = BooleanField("Planed", default=False)
     location = SelectField(

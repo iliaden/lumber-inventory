@@ -7,9 +7,10 @@ A mobile-friendly, web-based lumber inventory management system designed for woo
 This application helps you keep track of your lumber inventory in your woodworking workshop. Each piece of lumber is tracked by:
 
 - **Species** - Type of wood (e.g., Oak, Walnut, Maple, Cherry)
-- **Dimensions** - Length, width, and thickness (in inches)
+- **Dimensions** - Length, width, and thickness (in inches, with fraction support)
 - **Surface** - Whether the wood is planed or rough
 - **Location** - Custom storage locations (user-defined)
+- **Tags** - Custom tags for organization (e.g., "project-table", "kiln-dried")
 
 The system runs as a web server on your Raspberry Pi, allowing you to access and manage your inventory from any device on your local network, including your phone.
 
@@ -20,6 +21,7 @@ The system runs as a web server on your Raspberry Pi, allowing you to access and
 - **Add Lumber** - Quickly add new pieces to your inventory
 - **Edit Lumber** - Update details or move lumber to different shelves
 - **Delete Lumber** - Remove pieces from inventory when used
+- **Fractional Dimensions** - Enter dimensions as fractions (e.g., "1 3/4") and view them displayed as fractions
 - **Mobile-Responsive** - Optimized for phone use with Bootstrap 5
 - **Local Storage** - All data stored securely on your Raspberry Pi using SQLite
 
@@ -39,6 +41,7 @@ lumber-inventory/
 ├── app.py              # Main Flask application with routes
 ├── models.py           # SQLAlchemy database models
 ├── forms.py            # WTForms form definitions
+├── fractions_utils.py  # Fraction parsing and display utilities
 ├── templates/          # Jinja2 HTML templates
 │   ├── base.html       # Base template with navigation
 │   ├── index.html      # Inventory list and search page
@@ -112,11 +115,28 @@ If mDNS is configured on your Raspberry Pi:
 
 1. Click the "Add Lumber" button on the home page
 2. Fill in the species (e.g., "Red Oak", "Black Walnut")
-3. Enter dimensions in inches (length, width, thickness)
+3. Enter dimensions in inches (length, width, thickness) - fractions are supported!
 4. Select whether it's planed or rough
 5. Choose an existing location or create a new one
 6. Optionally add tags
 7. Click "Add Lumber"
+
+### Entering Fractional Dimensions
+
+The system supports entering lumber dimensions as fractions, which is common in woodworking. The following formats are accepted:
+
+| Input Format | Example | Stored Value |
+|--------------|---------|--------------|
+| Decimal | `1.75` | 1.75 |
+| Mixed number (space) | `1 3/4` | 1.75 |
+| Mixed number (dash) | `1-3/4` | 1.75 |
+| Simple fraction | `3/4` | 0.75 |
+| Whole number | `48` | 48.0 |
+
+Dimensions are displayed in the UI using common woodworking fractions (1/32" precision):
+- `0.75` displays as `3/4`
+- `1.5` displays as `1 1/2`
+- `2.21875` displays as `2 7/32`
 
 ### Searching Inventory
 
