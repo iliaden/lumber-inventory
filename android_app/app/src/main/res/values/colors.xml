@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="lumber_brown">#8B4513</color>
+    <color name="lumber_brown_dark">#5D2E0C</color>
+    <color name="lumber_green">#228B22</color>
+    <color name="lumber_cream">#FFF8DC</color>
+    <color name="surface_planed">#4CAF50</color>
+    <color name="surface_rough">#FFC107</color>
+    
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    
+    <!-- Material theme colors will be defined in Compose Theme -->
+</resources>
