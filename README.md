@@ -38,7 +38,8 @@ The system runs as a web server on your Raspberry Pi, allowing you to access and
 
 ```
 lumber-inventory/
-├── app.py              # Main Flask application with routes
+├── app.py              # Main Flask application with web routes
+├── api.py              # REST API endpoints for mobile apps
 ├── models.py           # SQLAlchemy database models
 ├── forms.py            # WTForms form definitions
 ├── fractions_utils.py  # Fraction parsing and display utilities
@@ -261,6 +262,166 @@ Consider setting up a cron job for automatic backups.
 
 - Port 80 requires elevated privileges. Run with: `sudo python app.py`
 - Or use a port above 1024 (e.g., 8080) which doesn't require sudo
+
+## REST API
+
+The application includes a REST API for integration with mobile applications (e.g., Android app). All API endpoints are prefixed with `/api/v1/`.
+
+### API Response Format
+
+All API responses follow a consistent JSON format:
+
+**Success Response:**
+```json
+{
+  "success": true,
+  "message": "Optional success message",
+  "data": { ... }
+}
+```
+
+**Error Response:**
+```json
+{
+  "error": "Error message description"
+}
+```
+
+### API Endpoints
+
+#### Health & Stats
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/v1/health` | Health check - returns API status and version |
+| GET | `/api/v1/stats` | Get inventory statistics (counts, species breakdown) |
+
+#### Lumber
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/v1/lumber` | List all lumber items (with optional filters) |
+| GET | `/api/v1/lumber/<id>` | Get a single lumber item by ID |
+| POST | `/api/v1/lumber` | Create a new lumber item |
+| PUT | `/api/v1/lumber/<id>` | Update an existing lumber item |
+| DELETE | `/api/v1/lumber/<id>` | Delete a lumber item |
+
+**Query Parameters for GET `/api/v1/lumber`:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `species` | string | Filter by species (partial match) |
+| `location_id` | int | Filter by location ID |
+| `planed` | string | Filter by planed status ("true" or "false") |
+| `tag_id` | int | Filter by tag ID |
+| `min_length` | string | Minimum length (supports fractions like "1 3/4") |
+| `max_length` | string | Maximum length |
+| `min_thickness` | string | Minimum thickness |
+| `max_thickness` | string | Maximum thickness |
+
+**Request Body for POST/PUT `/api/v1/lumber`:**
+
+```json
+{
+  "species": "Red Oak",
+  "length": "48",
+  "width": "6",
+  "thickness": "1 3/4",
+  "planed": false,
+  "location_id": 1,
+  "location_name": "New Shelf",
+  "tags": ["kiln-dried", "project-table"],
+  "tag_ids": [1, 2]
+}
+```
+
+- `species`, `length`, `width`, `thickness` are required for POST
+- Dimensions support fractions (e.g., "1 3/4", "3/4", "1-3/4")
+- Use `location_id` for existing locations or `location_name` to create new
+- Use `tags` for tag names (creates if not exist) or `tag_ids` for existing tags
+
+#### Locations
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/v1/locations` | List all storage locations |
+| GET | `/api/v1/locations/<id>` | Get a single location by ID |
+| POST | `/api/v1/locations` | Create a new location |
+| PUT | `/api/v1/locations/<id>` | Update an existing location |
+| DELETE | `/api/v1/locations/<id>` | Delete a location |
+
+**Request Body for POST/PUT `/api/v1/locations`:**
+
+```json
+{
+  "name": "Workshop Shelf A"
+}
+```
+
+#### Tags
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/v1/tags` | List all tags |
+| GET | `/api/v1/tags/<id>` | Get a single tag by ID |
+| POST | `/api/v1/tags` | Create a new tag |
+| PUT | `/api/v1/tags/<id>` | Update an existing tag |
+| DELETE | `/api/v1/tags/<id>` | Delete a tag |
+
+**Request Body for POST/PUT `/api/v1/tags`:**
+
+```json
+{
+  "name": "kiln-dried"
+}
+```
+
+### API Examples
+
+**List all lumber:**
+```bash
+curl http://localhost/api/v1/lumber
+```
+
+**Filter lumber by species:**
+```bash
+curl "http://localhost/api/v1/lumber?species=oak"
+```
+
+**Add new lumber:**
+```bash
+curl -X POST http://localhost/api/v1/lumber \
+  -H "Content-Type: application/json" \
+  -d '{
+    "species": "Black Walnut",
+    "length": "72",
+    "width": "8",
+    "thickness": "1 3/4",
+    "planed": false,
+    "location_name": "Drying Rack",
+    "tags": ["air-dried", "live-edge"]
+  }'
+```
+
+**Update lumber:**
+```bash
+curl -X PUT http://localhost/api/v1/lumber/1 \
+  -H "Content-Type: application/json" \
+  -d '{
+    "planed": true,
+    "thickness": "1 1/2"
+  }'
+```
+
+**Delete lumber:**
+```bash
+curl -X DELETE http://localhost/api/v1/lumber/1
+```
+
+**Get inventory stats:**
+```bash
+curl http://localhost/api/v1/stats
+```
 
 ## Future Enhancements
 

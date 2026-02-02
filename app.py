@@ -1,5 +1,6 @@
 import os
 
+from api import api
 from flask import flash, Flask, jsonify, redirect, render_template, request, url_for
 from forms import LumberForm, SearchForm
 from fractions_utils import float_to_fraction_display, parse_fraction_string
@@ -13,6 +14,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///inventory.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db.init_app(app)
+app.register_blueprint(api)
 
 
 @app.template_filter("fraction")
