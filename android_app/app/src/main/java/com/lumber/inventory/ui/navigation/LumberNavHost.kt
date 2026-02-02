@@ -19,6 +19,7 @@ import com.lumber.inventory.ui.screens.edit.EditLumberScreen
 import com.lumber.inventory.ui.screens.filter.FilterScreen
 import com.lumber.inventory.ui.screens.inventory.InventoryScreen
 import com.lumber.inventory.ui.screens.locations.LocationsScreen
+import com.lumber.inventory.ui.screens.reekon.ReekonMeasurementScreen
 import com.lumber.inventory.ui.screens.settings.SettingsScreen
 import com.lumber.inventory.ui.screens.setup.SetupScreen
 import com.lumber.inventory.ui.screens.tags.TagsScreen
@@ -61,7 +62,44 @@ fun LumberNavHost(
         composable(Screen.AddLumber.route) {
             AddLumberScreen(
                 onNavigateBack = { navController.popBackStack() },
-                onLumberAdded = { navController.popBackStack() }
+                onLumberAdded = { navController.popBackStack() },
+                onMeasureWithReekon = { navController.navigate(Screen.ReekonMeasurement.route) }
+            )
+        }
+
+        composable(
+            route = Screen.AddLumberWithMeasurements.route,
+            arguments = listOf(
+                navArgument(Screen.LENGTH_ARG) { type = NavType.FloatType },
+                navArgument(Screen.WIDTH_ARG) { type = NavType.FloatType },
+                navArgument(Screen.THICKNESS_ARG) { type = NavType.FloatType }
+            )
+        ) { backStackEntry ->
+            val length = backStackEntry.arguments?.getFloat(Screen.LENGTH_ARG)?.toDouble() ?: 0.0
+            val width = backStackEntry.arguments?.getFloat(Screen.WIDTH_ARG)?.toDouble() ?: 0.0
+            val thickness = backStackEntry.arguments?.getFloat(Screen.THICKNESS_ARG)?.toDouble() ?: 0.0
+            AddLumberScreen(
+                onNavigateBack = { navController.popBackStack() },
+                onLumberAdded = {
+                    navController.popBackStack(Screen.Inventory.route, inclusive = false)
+                },
+                onMeasureWithReekon = { navController.navigate(Screen.ReekonMeasurement.route) },
+                initialLength = length,
+                initialWidth = width,
+                initialThickness = thickness
+            )
+        }
+
+        composable(Screen.ReekonMeasurement.route) {
+            ReekonMeasurementScreen(
+                onNavigateBack = { navController.popBackStack() },
+                onMeasurementsComplete = { length, width, thickness ->
+                    navController.navigate(
+                        Screen.AddLumberWithMeasurements.createRoute(length, width, thickness)
+                    ) {
+                        popUpTo(Screen.AddLumber.route) { inclusive = true }
+                    }
+                }
             )
         }
 
