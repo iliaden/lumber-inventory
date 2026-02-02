@@ -62,7 +62,6 @@ fun LumberNavHost(
         composable(Screen.AddLumber.route) {
             AddLumberScreen(
                 onNavigateBack = { navController.popBackStack() },
-                onLumberAdded = { navController.popBackStack() },
                 onMeasureWithReekon = { navController.navigate(Screen.ReekonMeasurement.route) }
             )
         }
@@ -80,9 +79,6 @@ fun LumberNavHost(
             val thickness = backStackEntry.arguments?.getFloat(Screen.THICKNESS_ARG)?.toDouble() ?: 0.0
             AddLumberScreen(
                 onNavigateBack = { navController.popBackStack() },
-                onLumberAdded = {
-                    navController.popBackStack(Screen.Inventory.route, inclusive = false)
-                },
                 onMeasureWithReekon = { navController.navigate(Screen.ReekonMeasurement.route) },
                 initialLength = length,
                 initialWidth = width,

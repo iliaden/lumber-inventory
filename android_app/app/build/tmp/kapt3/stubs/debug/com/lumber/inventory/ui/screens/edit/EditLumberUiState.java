@@ -3,7 +3,6 @@ package com.lumber.inventory.ui.screens.edit;
 import androidx.lifecycle.ViewModel;
 import com.lumber.inventory.data.model.UpdateLumberRequest;
 import com.lumber.inventory.data.repository.LumberRepository;
-import com.lumber.inventory.ui.screens.add.LumberFormState;
 import com.lumber.inventory.util.FractionUtils;
 import dagger.hilt.android.lifecycle.HiltViewModel;
 import kotlinx.coroutines.flow.StateFlow;

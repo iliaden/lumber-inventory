@@ -110,4 +110,9 @@ dependencies {
 
 kapt {
     correctErrorTypes = true
+    showProcessorStats = false
+    useBuildCache = true
+    arguments {
+        arg("dagger.fastInit", "disabled")
+    }
 }

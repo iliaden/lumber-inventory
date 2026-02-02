@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.lumber.inventory.data.model.UpdateLumberRequest
 import com.lumber.inventory.data.repository.LumberRepository
-import com.lumber.inventory.ui.screens.add.LumberFormState
 import com.lumber.inventory.util.FractionUtils
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -13,6 +12,20 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+
+data class EditLumberFormState(
+    val species: String = "",
+    val length: String = "",
+    val width: String = "",
+    val thickness: String = "",
+    val planed: Boolean = false,
+    val locationName: String = "",
+    val tags: String = "",
+    val speciesError: String? = null,
+    val lengthError: String? = null,
+    val widthError: String? = null,
+    val thicknessError: String? = null
+)
 
 sealed class EditLumberUiState {
     object Loading : EditLumberUiState()
@@ -28,8 +41,8 @@ class EditLumberViewModel @Inject constructor(
     private val repository: LumberRepository
 ) : ViewModel() {
 
-    private val _formState = MutableStateFlow(LumberFormState())
-    val formState: StateFlow<LumberFormState> = _formState.asStateFlow()
+    private val _formState = MutableStateFlow(EditLumberFormState())
+    val formState: StateFlow<EditLumberFormState> = _formState.asStateFlow()
 
     private val _uiState = MutableStateFlow<EditLumberUiState>(EditLumberUiState.Loading)
     val uiState: StateFlow<EditLumberUiState> = _uiState.asStateFlow()
@@ -43,7 +56,7 @@ class EditLumberViewModel @Inject constructor(
 
             repository.getLumber(id)
                 .onSuccess { lumber ->
-                    _formState.value = LumberFormState(
+                    _formState.value = EditLumberFormState(
                         species = lumber.species,
                         length = lumber.lengthDisplay ?: lumber.length.toString(),
                         width = lumber.widthDisplay ?: lumber.width.toString(),

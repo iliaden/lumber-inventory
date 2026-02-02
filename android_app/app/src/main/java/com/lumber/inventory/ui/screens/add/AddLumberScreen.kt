@@ -28,7 +28,6 @@ import com.lumber.inventory.data.model.Tag
 @Composable
 fun AddLumberScreen(
     onNavigateBack: () -> Unit,
-    onLumberAdded: () -> Unit,
     onMeasureWithReekon: () -> Unit,
     initialLength: Double? = null,
     initialWidth: Double? = null,
