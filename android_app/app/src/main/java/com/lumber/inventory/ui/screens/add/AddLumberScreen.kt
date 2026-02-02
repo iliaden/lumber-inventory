@@ -5,9 +5,12 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Bluetooth
+import androidx.compose.material.icons.filled.Straighten
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
@@ -20,11 +23,23 @@ import com.lumber.inventory.R
 fun AddLumberScreen(
     onNavigateBack: () -> Unit,
     onLumberAdded: () -> Unit,
+    onMeasureWithReekon: () -> Unit,
+    initialLength: Double? = null,
+    initialWidth: Double? = null,
+    initialThickness: Double? = null,
     viewModel: AddLumberViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val formState by viewModel.formState.collectAsState()
     val snackbarHostState = remember { SnackbarHostState() }
+
+    // Apply initial measurements from Reekon if provided
+    LaunchedEffect(initialLength, initialWidth, initialThickness) {
+        if (initialLength != null && initialWidth != null && initialThickness != null &&
+            initialLength > 0 && initialWidth > 0 && initialThickness > 0) {
+            viewModel.setInitialMeasurements(initialLength, initialWidth, initialThickness)
+        }
+    }
 
     LaunchedEffect(uiState) {
         when (uiState) {
@@ -45,7 +60,7 @@ fun AddLumberScreen(
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
                         Icon(
-                            Icons.Default.ArrowBack,
+                            Icons.AutoMirrored.Filled.ArrowBack,
                             contentDescription = stringResource(R.string.cd_back)
                         )
                     }
@@ -77,6 +92,61 @@ fun AddLumberScreen(
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true
             )
+
+            // Reekon Measurement Button
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                colors = CardDefaults.cardColors(
+                    containerColor = if (formState.fromReekon) 
+                        MaterialTheme.colorScheme.primaryContainer 
+                    else 
+                        MaterialTheme.colorScheme.surfaceVariant
+                )
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(12.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(12.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Straighten,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.primary
+                    )
+                    Column(modifier = Modifier.weight(1f)) {
+                        Text(
+                            text = "Dimensions",
+                            style = MaterialTheme.typography.titleSmall
+                        )
+                        if (formState.fromReekon) {
+                            Text(
+                                text = "Measured with Reekon T1M",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.primary
+                            )
+                        } else {
+                            Text(
+                                text = "Enter manually or use Reekon",
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    }
+                    FilledTonalButton(
+                        onClick = onMeasureWithReekon
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Bluetooth,
+                            contentDescription = null,
+                            modifier = Modifier.size(18.dp)
+                        )
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text(if (formState.fromReekon) "Re-measure" else "Reekon T1M")
+                    }
+                }
+            }
 
             Row(
                 modifier = Modifier.fillMaxWidth(),

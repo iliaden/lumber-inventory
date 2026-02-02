@@ -1,8 +1,8 @@
 package com.lumber.inventory.ui.screens.reekon
 
-import android.Manifest
 import android.bluetooth.BluetoothAdapter
 import android.content.Intent
+import android.view.HapticFeedbackConstants
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
@@ -55,6 +55,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -72,6 +73,7 @@ fun ReekonMeasurementScreen(
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val snackbarHostState = remember { SnackbarHostState() }
+    val view = LocalView.current
 
     // Permission launcher
     val permissionLauncher = rememberLauncherForActivityResult(
@@ -86,6 +88,13 @@ fun ReekonMeasurementScreen(
         ActivityResultContracts.StartActivityForResult()
     ) {
         viewModel.checkPermissions()
+    }
+
+    // Haptic feedback when measurement is accepted
+    LaunchedEffect(Unit) {
+        viewModel.measurementAccepted.collect {
+            view.performHapticFeedback(HapticFeedbackConstants.CONFIRM)
+        }
     }
 
     // Show error messages

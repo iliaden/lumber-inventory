@@ -15,10 +15,12 @@ import com.lumber.inventory.data.ble.ReekonBleManager
 import com.lumber.inventory.data.ble.ReekonDevice
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
@@ -43,6 +45,9 @@ class ReekonMeasurementViewModel @Inject constructor(
 
     private val _errorMessage = MutableStateFlow<String?>(null)
     private val _permissionsGranted = MutableStateFlow(false)
+
+    private val _measurementAccepted = MutableSharedFlow<Unit>(extraBufferCapacity = 5)
+    val measurementAccepted: SharedFlow<Unit> = _measurementAccepted.asSharedFlow()
 
     val uiState: StateFlow<ReekonUiState> = combine(
         bleManager.connectionState,
@@ -85,8 +90,8 @@ class ReekonMeasurementViewModel @Inject constructor(
         viewModelScope.launch {
             bleManager.measurements.collect { measurement ->
                 val accepted = measurementInputManager.processMeasurement(measurement)
-                if (!accepted) {
-                    // Measurement was a duplicate, could show a toast if needed
+                if (accepted) {
+                    _measurementAccepted.emit(Unit)
                 }
             }
         }

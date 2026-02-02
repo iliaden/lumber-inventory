@@ -24,7 +24,8 @@ data class LumberFormState(
     val speciesError: String? = null,
     val lengthError: String? = null,
     val widthError: String? = null,
-    val thicknessError: String? = null
+    val thicknessError: String? = null,
+    val fromReekon: Boolean = false
 )
 
 sealed class AddLumberUiState {
@@ -44,6 +45,19 @@ class AddLumberViewModel @Inject constructor(
 
     private val _uiState = MutableStateFlow<AddLumberUiState>(AddLumberUiState.Idle)
     val uiState: StateFlow<AddLumberUiState> = _uiState.asStateFlow()
+
+    /**
+     * Set initial measurements from Reekon device.
+     * Converts inches to fractional display strings.
+     */
+    fun setInitialMeasurements(lengthInches: Double, widthInches: Double, thicknessInches: Double) {
+        _formState.update { it.copy(
+            length = FractionUtils.toFractionDisplay(lengthInches),
+            width = FractionUtils.toFractionDisplay(widthInches),
+            thickness = FractionUtils.toFractionDisplay(thicknessInches),
+            fromReekon = true
+        ) }
+    }
 
     fun updateSpecies(value: String) {
         _formState.update { it.copy(species = value, speciesError = null) }
