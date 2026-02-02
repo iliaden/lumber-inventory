@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Lumber Inventory</string>
-    
+
     <!-- Screen titles -->
     <string name="title_inventory">Inventory</string>
     <string name="title_add_lumber">Add Lumber</string>
@@ -10,7 +10,7 @@
     <string name="title_locations">Locations</string>
     <string name="title_tags">Tags</string>
     <string name="title_filter">Filter</string>
-    
+
     <!-- Form labels -->
     <string name="label_species">Species</string>
     <string name="label_length">Length (in)</string>
@@ -21,7 +21,7 @@
     <string name="label_location">Location</string>
     <string name="label_tags">Tags</string>
     <string name="label_server_url">Server URL</string>
-    
+
     <!-- Buttons -->
     <string name="btn_save">Save</string>
     <string name="btn_cancel">Cancel</string>
@@ -31,14 +31,14 @@
     <string name="btn_clear">Clear Filters</string>
     <string name="btn_test_connection">Test Connection</string>
     <string name="btn_retry">Retry</string>
-    
+
     <!-- Placeholders -->
     <string name="hint_species">e.g., Red Oak, Black Walnut</string>
     <string name="hint_dimension">e.g., 48, 1 3/4</string>
     <string name="hint_server_url">e.g., http://192.168.1.100</string>
     <string name="hint_new_location">New location name</string>
     <string name="hint_new_tag">New tag name</string>
-    
+
     <!-- Messages -->
     <string name="msg_empty_inventory">No lumber in inventory.\nTap + to add your first piece.</string>
     <string name="msg_no_results">No lumber matches your filters.</string>
@@ -50,13 +50,13 @@
     <string name="msg_lumber_deleted">Lumber deleted</string>
     <string name="msg_required_field">This field is required</string>
     <string name="msg_invalid_dimension">Invalid dimension format</string>
-    
+
     <!-- Dialogs -->
     <string name="dialog_delete_title">Delete Lumber?</string>
     <string name="dialog_delete_message">Are you sure you want to delete this piece of lumber? This action cannot be undone.</string>
     <string name="dialog_delete_confirm">Delete</string>
     <string name="dialog_cancel">Cancel</string>
-    
+
     <!-- Content descriptions -->
     <string name="cd_add_lumber">Add new lumber</string>
     <string name="cd_edit_lumber">Edit lumber</string>

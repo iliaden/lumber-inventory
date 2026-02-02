@@ -21,18 +21,18 @@ sealed class LocationsUiState {
 class LocationsViewModel @Inject constructor(
     private val repository: LumberRepository
 ) : ViewModel() {
-    
+
     private val _uiState = MutableStateFlow<LocationsUiState>(LocationsUiState.Loading)
     val uiState: StateFlow<LocationsUiState> = _uiState.asStateFlow()
-    
+
     init {
         loadLocations()
     }
-    
+
     fun loadLocations() {
         viewModelScope.launch {
             _uiState.value = LocationsUiState.Loading
-            
+
             repository.getLocations()
                 .onSuccess { locations ->
                     _uiState.value = LocationsUiState.Success(locations)
@@ -42,7 +42,7 @@ class LocationsViewModel @Inject constructor(
                 }
         }
     }
-    
+
     fun createLocation(name: String) {
         viewModelScope.launch {
             repository.createLocation(name)
@@ -54,7 +54,7 @@ class LocationsViewModel @Inject constructor(
                 }
         }
     }
-    
+
     fun deleteLocation(id: Int) {
         viewModelScope.launch {
             repository.deleteLocation(id)

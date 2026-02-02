@@ -17,16 +17,16 @@ data class LumberFilter(
      * Returns true if any filter is active.
      */
     fun isActive(): Boolean {
-        return species != null || 
-               locationId != null || 
-               planed != null || 
-               tagId != null || 
-               minLength != null || 
+        return species != null ||
+               locationId != null ||
+               planed != null ||
+               tagId != null ||
+               minLength != null ||
                maxLength != null ||
                minThickness != null ||
                maxThickness != null
     }
-    
+
     /**
      * Returns the number of active filters.
      */
@@ -40,7 +40,7 @@ data class LumberFilter(
         if (minThickness != null || maxThickness != null) count++
         return count
     }
-    
+
     companion object {
         val EMPTY = LumberFilter()
     }

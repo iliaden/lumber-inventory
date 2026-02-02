@@ -1,7 +1,14 @@
 package com.lumber.inventory.ui.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -13,6 +20,7 @@ import com.lumber.inventory.ui.screens.filter.FilterScreen
 import com.lumber.inventory.ui.screens.inventory.InventoryScreen
 import com.lumber.inventory.ui.screens.locations.LocationsScreen
 import com.lumber.inventory.ui.screens.settings.SettingsScreen
+import com.lumber.inventory.ui.screens.setup.SetupScreen
 import com.lumber.inventory.ui.screens.tags.TagsScreen
 
 /**
@@ -21,31 +29,42 @@ import com.lumber.inventory.ui.screens.tags.TagsScreen
 @Composable
 fun LumberNavHost(
     navController: NavHostController,
+    startDestination: String,
     modifier: Modifier = Modifier
 ) {
     NavHost(
         navController = navController,
-        startDestination = Screen.Inventory.route,
+        startDestination = startDestination,
         modifier = modifier
     ) {
+        composable(Screen.Setup.route) {
+            SetupScreen(
+                onSetupComplete = {
+                    navController.navigate(Screen.Inventory.route) {
+                        popUpTo(Screen.Setup.route) { inclusive = true }
+                    }
+                }
+            )
+        }
+
         composable(Screen.Inventory.route) {
             InventoryScreen(
                 onAddClick = { navController.navigate(Screen.AddLumber.route) },
-                onEditClick = { lumberId -> 
-                    navController.navigate(Screen.EditLumber.createRoute(lumberId)) 
+                onEditClick = { lumberId ->
+                    navController.navigate(Screen.EditLumber.createRoute(lumberId))
                 },
                 onFilterClick = { navController.navigate(Screen.Filter.route) },
                 onSettingsClick = { navController.navigate(Screen.Settings.route) }
             )
         }
-        
+
         composable(Screen.AddLumber.route) {
             AddLumberScreen(
                 onNavigateBack = { navController.popBackStack() },
                 onLumberAdded = { navController.popBackStack() }
             )
         }
-        
+
         composable(
             route = Screen.EditLumber.route,
             arguments = listOf(
@@ -60,14 +79,14 @@ fun LumberNavHost(
                 onLumberDeleted = { navController.popBackStack() }
             )
         }
-        
+
         composable(Screen.Filter.route) {
             FilterScreen(
                 onNavigateBack = { navController.popBackStack() },
                 onFiltersApplied = { navController.popBackStack() }
             )
         }
-        
+
         composable(Screen.Settings.route) {
             SettingsScreen(
                 onNavigateBack = { navController.popBackStack() },
@@ -75,13 +94,13 @@ fun LumberNavHost(
                 onTagsClick = { navController.navigate(Screen.Tags.route) }
             )
         }
-        
+
         composable(Screen.Locations.route) {
             LocationsScreen(
                 onNavigateBack = { navController.popBackStack() }
             )
         }
-        
+
         composable(Screen.Tags.route) {
             TagsScreen(
                 onNavigateBack = { navController.popBackStack() }

@@ -30,7 +30,7 @@ fun InventoryScreen(
     viewModel: InventoryViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsState()
-    
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -144,7 +144,7 @@ private fun LumberCard(
                     overflow = TextOverflow.Ellipsis,
                     modifier = Modifier.weight(1f)
                 )
-                
+
                 Surface(
                     color = if (lumber.planed) SurfacePlaned else SurfaceRough,
                     shape = MaterialTheme.shapes.small
@@ -157,9 +157,9 @@ private fun LumberCard(
                     )
                 }
             }
-            
+
             Spacer(modifier = Modifier.height(8.dp))
-            
+
             Text(
                 text = buildString {
                     append(FractionUtils.formatDimension(lumber.length, lumber.lengthDisplay))
@@ -171,7 +171,7 @@ private fun LumberCard(
                 },
                 style = MaterialTheme.typography.bodyLarge
             )
-            
+
             if (lumber.location != null) {
                 Spacer(modifier = Modifier.height(4.dp))
                 Row(verticalAlignment = Alignment.CenterVertically) {
@@ -189,7 +189,7 @@ private fun LumberCard(
                     )
                 }
             }
-            
+
             if (lumber.tags.isNotEmpty()) {
                 Spacer(modifier = Modifier.height(8.dp))
                 Row(
@@ -198,11 +198,11 @@ private fun LumberCard(
                     lumber.tags.take(3).forEach { tag ->
                         SuggestionChip(
                             onClick = { },
-                            label = { 
+                            label = {
                                 Text(
                                     text = tag,
                                     style = MaterialTheme.typography.labelSmall
-                                ) 
+                                )
                             }
                         )
                     }

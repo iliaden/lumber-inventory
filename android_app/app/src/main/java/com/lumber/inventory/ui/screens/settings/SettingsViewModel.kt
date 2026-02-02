@@ -25,30 +25,30 @@ class SettingsViewModel @Inject constructor(
     private val settingsRepository: SettingsRepository,
     private val lumberRepository: LumberRepository
 ) : ViewModel() {
-    
+
     val serverUrl: StateFlow<String> = settingsRepository.serverUrlFlow
         .stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(5000),
             initialValue = SettingsRepository.DEFAULT_SERVER_URL
         )
-    
+
     private val _connectionState = MutableStateFlow<ConnectionState>(ConnectionState.Idle)
     val connectionState: StateFlow<ConnectionState> = _connectionState.asStateFlow()
-    
+
     fun saveServerUrl(url: String) {
         viewModelScope.launch {
             settingsRepository.setServerUrl(url)
         }
     }
-    
+
     fun testConnection(url: String) {
         viewModelScope.launch {
             _connectionState.value = ConnectionState.Testing
-            
+
             // Temporarily save the URL to test with
             settingsRepository.setServerUrl(url)
-            
+
             lumberRepository.healthCheck()
                 .onSuccess {
                     _connectionState.value = ConnectionState.Success

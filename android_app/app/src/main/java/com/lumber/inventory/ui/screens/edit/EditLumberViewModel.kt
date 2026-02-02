@@ -27,20 +27,20 @@ sealed class EditLumberUiState {
 class EditLumberViewModel @Inject constructor(
     private val repository: LumberRepository
 ) : ViewModel() {
-    
+
     private val _formState = MutableStateFlow(LumberFormState())
     val formState: StateFlow<LumberFormState> = _formState.asStateFlow()
-    
+
     private val _uiState = MutableStateFlow<EditLumberUiState>(EditLumberUiState.Loading)
     val uiState: StateFlow<EditLumberUiState> = _uiState.asStateFlow()
-    
+
     private var lumberId: Int = -1
-    
+
     fun loadLumber(id: Int) {
         lumberId = id
         viewModelScope.launch {
             _uiState.value = EditLumberUiState.Loading
-            
+
             repository.getLumber(id)
                 .onSuccess { lumber ->
                     _formState.value = LumberFormState(
@@ -59,38 +59,38 @@ class EditLumberViewModel @Inject constructor(
                 }
         }
     }
-    
+
     fun updateSpecies(value: String) {
         _formState.update { it.copy(species = value, speciesError = null) }
     }
-    
+
     fun updateLength(value: String) {
         _formState.update { it.copy(length = value, lengthError = null) }
     }
-    
+
     fun updateWidth(value: String) {
         _formState.update { it.copy(width = value, widthError = null) }
     }
-    
+
     fun updateThickness(value: String) {
         _formState.update { it.copy(thickness = value, thicknessError = null) }
     }
-    
+
     fun updatePlaned(value: Boolean) {
         _formState.update { it.copy(planed = value) }
     }
-    
+
     fun updateLocationName(value: String) {
         _formState.update { it.copy(locationName = value) }
     }
-    
+
     fun updateTags(value: String) {
         _formState.update { it.copy(tags = value) }
     }
-    
+
     private fun validateForm(): Boolean {
         var isValid = true
-        
+
         _formState.update { state ->
             state.copy(
                 speciesError = if (state.species.isBlank()) {
@@ -120,21 +120,21 @@ class EditLumberViewModel @Inject constructor(
                 } else null
             )
         }
-        
+
         return isValid
     }
-    
+
     fun saveLumber() {
         if (!validateForm()) return
-        
+
         viewModelScope.launch {
             _uiState.value = EditLumberUiState.Saving
-            
+
             val form = _formState.value
             val tags = form.tags.split(",")
                 .map { it.trim() }
                 .filter { it.isNotBlank() }
-            
+
             val request = UpdateLumberRequest(
                 species = form.species.trim(),
                 length = form.length.trim(),
@@ -144,7 +144,7 @@ class EditLumberViewModel @Inject constructor(
                 locationName = form.locationName.trim().takeIf { it.isNotBlank() },
                 tags = tags
             )
-            
+
             repository.updateLumber(lumberId, request)
                 .onSuccess {
                     _uiState.value = EditLumberUiState.Updated
@@ -154,11 +154,11 @@ class EditLumberViewModel @Inject constructor(
                 }
         }
     }
-    
+
     fun deleteLumber() {
         viewModelScope.launch {
             _uiState.value = EditLumberUiState.Saving
-            
+
             repository.deleteLumber(lumberId)
                 .onSuccess {
                     _uiState.value = EditLumberUiState.Deleted

@@ -29,11 +29,11 @@ fun EditLumberScreen(
     val formState by viewModel.formState.collectAsState()
     val snackbarHostState = remember { SnackbarHostState() }
     var showDeleteDialog by remember { mutableStateOf(false) }
-    
+
     LaunchedEffect(lumberId) {
         viewModel.loadLumber(lumberId)
     }
-    
+
     LaunchedEffect(uiState) {
         when (uiState) {
             is EditLumberUiState.Updated -> onLumberUpdated()
@@ -46,7 +46,7 @@ fun EditLumberScreen(
             else -> {}
         }
     }
-    
+
     if (showDeleteDialog) {
         AlertDialog(
             onDismissRequest = { showDeleteDialog = false },
@@ -72,7 +72,7 @@ fun EditLumberScreen(
             }
         )
     }
-    
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -132,7 +132,7 @@ fun EditLumberScreen(
                         modifier = Modifier.fillMaxWidth(),
                         singleLine = true
                     )
-                    
+
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.spacedBy(8.dp)
@@ -147,7 +147,7 @@ fun EditLumberScreen(
                             singleLine = true,
                             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
                         )
-                        
+
                         OutlinedTextField(
                             value = formState.width,
                             onValueChange = { viewModel.updateWidth(it) },
@@ -159,7 +159,7 @@ fun EditLumberScreen(
                             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
                         )
                     }
-                    
+
                     OutlinedTextField(
                         value = formState.thickness,
                         onValueChange = { viewModel.updateThickness(it) },
@@ -170,7 +170,7 @@ fun EditLumberScreen(
                         singleLine = true,
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
                     )
-                    
+
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.spacedBy(16.dp)
@@ -186,7 +186,7 @@ fun EditLumberScreen(
                             label = { Text(stringResource(R.string.label_planed)) }
                         )
                     }
-                    
+
                     OutlinedTextField(
                         value = formState.locationName,
                         onValueChange = { viewModel.updateLocationName(it) },
@@ -194,7 +194,7 @@ fun EditLumberScreen(
                         modifier = Modifier.fillMaxWidth(),
                         singleLine = true
                     )
-                    
+
                     OutlinedTextField(
                         value = formState.tags,
                         onValueChange = { viewModel.updateTags(it) },
@@ -202,9 +202,9 @@ fun EditLumberScreen(
                         modifier = Modifier.fillMaxWidth(),
                         singleLine = true
                     )
-                    
+
                     Spacer(modifier = Modifier.height(16.dp))
-                    
+
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.spacedBy(16.dp)
@@ -215,7 +215,7 @@ fun EditLumberScreen(
                         ) {
                             Text(stringResource(R.string.btn_cancel))
                         }
-                        
+
                         Button(
                             onClick = { viewModel.saveLumber() },
                             enabled = uiState !is EditLumberUiState.Saving,

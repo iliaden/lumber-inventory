@@ -22,21 +22,21 @@ sealed class InventoryUiState {
 class InventoryViewModel @Inject constructor(
     private val repository: LumberRepository
 ) : ViewModel() {
-    
+
     private val _uiState = MutableStateFlow<InventoryUiState>(InventoryUiState.Loading)
     val uiState: StateFlow<InventoryUiState> = _uiState.asStateFlow()
-    
+
     private var currentFilter = LumberFilter.EMPTY
-    
+
     init {
         loadLumber()
     }
-    
+
     fun loadLumber(filter: LumberFilter = currentFilter) {
         currentFilter = filter
         viewModelScope.launch {
             _uiState.value = InventoryUiState.Loading
-            
+
             repository.getLumberList(filter)
                 .onSuccess { lumber ->
                     _uiState.value = InventoryUiState.Success(lumber)
@@ -46,15 +46,15 @@ class InventoryViewModel @Inject constructor(
                 }
         }
     }
-    
+
     fun refresh() {
         loadLumber()
     }
-    
+
     fun applyFilter(filter: LumberFilter) {
         loadLumber(filter)
     }
-    
+
     fun clearFilter() {
         loadLumber(LumberFilter.EMPTY)
     }

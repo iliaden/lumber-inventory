@@ -26,7 +26,7 @@ fun SettingsScreen(
     val connectionState by viewModel.connectionState.collectAsState()
     var editedUrl by remember(serverUrl) { mutableStateOf(serverUrl) }
     val snackbarHostState = remember { SnackbarHostState() }
-    
+
     LaunchedEffect(connectionState) {
         when (connectionState) {
             is ConnectionState.Success -> {
@@ -42,7 +42,7 @@ fun SettingsScreen(
             else -> {}
         }
     }
-    
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -77,7 +77,7 @@ fun SettingsScreen(
                 style = MaterialTheme.typography.titleMedium,
                 color = MaterialTheme.colorScheme.primary
             )
-            
+
             OutlinedTextField(
                 value = editedUrl,
                 onValueChange = { editedUrl = it },
@@ -89,7 +89,7 @@ fun SettingsScreen(
                     Icon(Icons.Default.Cloud, contentDescription = null)
                 }
             )
-            
+
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
@@ -108,7 +108,7 @@ fun SettingsScreen(
                     }
                     Text(stringResource(R.string.btn_test_connection))
                 }
-                
+
                 Button(
                     onClick = { viewModel.saveServerUrl(editedUrl) },
                     modifier = Modifier.weight(1f)
@@ -116,15 +116,15 @@ fun SettingsScreen(
                     Text(stringResource(R.string.btn_save))
                 }
             }
-            
+
             HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
-            
+
             Text(
                 text = "Data Management",
                 style = MaterialTheme.typography.titleMedium,
                 color = MaterialTheme.colorScheme.primary
             )
-            
+
             Card(
                 onClick = onLocationsClick,
                 modifier = Modifier.fillMaxWidth()
@@ -158,7 +158,7 @@ fun SettingsScreen(
                     )
                 }
             }
-            
+
             Card(
                 onClick = onTagsClick,
                 modifier = Modifier.fillMaxWidth()
@@ -192,15 +192,15 @@ fun SettingsScreen(
                     )
                 }
             }
-            
+
             HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
-            
+
             Text(
                 text = "About",
                 style = MaterialTheme.typography.titleMedium,
                 color = MaterialTheme.colorScheme.primary
             )
-            
+
             Text(
                 text = "Lumber Inventory v1.0.0",
                 style = MaterialTheme.typography.bodyMedium

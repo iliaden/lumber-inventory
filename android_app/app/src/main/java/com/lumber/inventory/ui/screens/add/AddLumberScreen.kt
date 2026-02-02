@@ -25,7 +25,7 @@ fun AddLumberScreen(
     val uiState by viewModel.uiState.collectAsState()
     val formState by viewModel.formState.collectAsState()
     val snackbarHostState = remember { SnackbarHostState() }
-    
+
     LaunchedEffect(uiState) {
         when (uiState) {
             is AddLumberUiState.Success -> onLumberAdded()
@@ -37,7 +37,7 @@ fun AddLumberScreen(
             else -> {}
         }
     }
-    
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -77,7 +77,7 @@ fun AddLumberScreen(
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true
             )
-            
+
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
@@ -93,7 +93,7 @@ fun AddLumberScreen(
                     singleLine = true,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
                 )
-                
+
                 OutlinedTextField(
                     value = formState.width,
                     onValueChange = { viewModel.updateWidth(it) },
@@ -106,7 +106,7 @@ fun AddLumberScreen(
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
                 )
             }
-            
+
             OutlinedTextField(
                 value = formState.thickness,
                 onValueChange = { viewModel.updateThickness(it) },
@@ -118,7 +118,7 @@ fun AddLumberScreen(
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
             )
-            
+
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
@@ -134,7 +134,7 @@ fun AddLumberScreen(
                     label = { Text(stringResource(R.string.label_planed)) }
                 )
             }
-            
+
             OutlinedTextField(
                 value = formState.locationName,
                 onValueChange = { viewModel.updateLocationName(it) },
@@ -143,7 +143,7 @@ fun AddLumberScreen(
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true
             )
-            
+
             OutlinedTextField(
                 value = formState.tags,
                 onValueChange = { viewModel.updateTags(it) },
@@ -152,9 +152,9 @@ fun AddLumberScreen(
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true
             )
-            
+
             Spacer(modifier = Modifier.height(16.dp))
-            
+
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
@@ -165,7 +165,7 @@ fun AddLumberScreen(
                 ) {
                     Text(stringResource(R.string.btn_cancel))
                 }
-                
+
                 Button(
                     onClick = { viewModel.saveLumber() },
                     enabled = uiState !is AddLumberUiState.Loading,

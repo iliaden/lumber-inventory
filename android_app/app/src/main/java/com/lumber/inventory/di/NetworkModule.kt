@@ -24,7 +24,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
-    
+
     @Provides
     @Singleton
     fun provideGson(): Gson {
@@ -32,14 +32,14 @@ object NetworkModule {
             .setLenient()
             .create()
     }
-    
+
     @Provides
     @Singleton
     fun provideOkHttpClient(): OkHttpClient {
         val loggingInterceptor = HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BODY
         }
-        
+
         return OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
             .connectTimeout(30, TimeUnit.SECONDS)
@@ -47,7 +47,7 @@ object NetworkModule {
             .writeTimeout(30, TimeUnit.SECONDS)
             .build()
     }
-    
+
     @Provides
     @Singleton
     fun provideSettingsRepository(
@@ -55,7 +55,7 @@ object NetworkModule {
     ): SettingsRepository {
         return SettingsRepository(context)
     }
-    
+
     @Provides
     @Singleton
     fun provideRetrofit(
@@ -63,17 +63,17 @@ object NetworkModule {
         gson: Gson,
         settingsRepository: SettingsRepository
     ): Retrofit {
-        val baseUrl = runBlocking { 
-            settingsRepository.getServerUrl() 
+        val baseUrl = runBlocking {
+            settingsRepository.getServerUrl()
         }
-        
+
         return Retrofit.Builder()
             .baseUrl("$baseUrl/api/v1/")
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
     }
-    
+
     @Provides
     @Singleton
     fun provideLumberApiService(retrofit: Retrofit): LumberApiService {

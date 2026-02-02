@@ -38,44 +38,44 @@ sealed class AddLumberUiState {
 class AddLumberViewModel @Inject constructor(
     private val repository: LumberRepository
 ) : ViewModel() {
-    
+
     private val _formState = MutableStateFlow(LumberFormState())
     val formState: StateFlow<LumberFormState> = _formState.asStateFlow()
-    
+
     private val _uiState = MutableStateFlow<AddLumberUiState>(AddLumberUiState.Idle)
     val uiState: StateFlow<AddLumberUiState> = _uiState.asStateFlow()
-    
+
     fun updateSpecies(value: String) {
         _formState.update { it.copy(species = value, speciesError = null) }
     }
-    
+
     fun updateLength(value: String) {
         _formState.update { it.copy(length = value, lengthError = null) }
     }
-    
+
     fun updateWidth(value: String) {
         _formState.update { it.copy(width = value, widthError = null) }
     }
-    
+
     fun updateThickness(value: String) {
         _formState.update { it.copy(thickness = value, thicknessError = null) }
     }
-    
+
     fun updatePlaned(value: Boolean) {
         _formState.update { it.copy(planed = value) }
     }
-    
+
     fun updateLocationName(value: String) {
         _formState.update { it.copy(locationName = value) }
     }
-    
+
     fun updateTags(value: String) {
         _formState.update { it.copy(tags = value) }
     }
-    
+
     private fun validateForm(): Boolean {
         var isValid = true
-        
+
         _formState.update { state ->
             state.copy(
                 speciesError = if (state.species.isBlank()) {
@@ -105,21 +105,21 @@ class AddLumberViewModel @Inject constructor(
                 } else null
             )
         }
-        
+
         return isValid
     }
-    
+
     fun saveLumber() {
         if (!validateForm()) return
-        
+
         viewModelScope.launch {
             _uiState.value = AddLumberUiState.Loading
-            
+
             val form = _formState.value
             val tags = form.tags.split(",")
                 .map { it.trim() }
                 .filter { it.isNotBlank() }
-            
+
             val request = CreateLumberRequest(
                 species = form.species.trim(),
                 length = form.length.trim(),
@@ -129,7 +129,7 @@ class AddLumberViewModel @Inject constructor(
                 locationName = form.locationName.trim().takeIf { it.isNotBlank() },
                 tags = tags.takeIf { it.isNotEmpty() }
             )
-            
+
             repository.createLumber(request)
                 .onSuccess {
                     _uiState.value = AddLumberUiState.Success

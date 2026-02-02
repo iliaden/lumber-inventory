@@ -23,10 +23,10 @@ fun LocationsScreen(
     val uiState by viewModel.uiState.collectAsState()
     var showAddDialog by remember { mutableStateOf(false) }
     var newLocationName by remember { mutableStateOf("") }
-    
+
     if (showAddDialog) {
         AlertDialog(
-            onDismissRequest = { 
+            onDismissRequest = {
                 showAddDialog = false
                 newLocationName = ""
             },
@@ -54,7 +54,7 @@ fun LocationsScreen(
                 }
             },
             dismissButton = {
-                TextButton(onClick = { 
+                TextButton(onClick = {
                     showAddDialog = false
                     newLocationName = ""
                 }) {
@@ -63,7 +63,7 @@ fun LocationsScreen(
             }
         )
     }
-    
+
     Scaffold(
         topBar = {
             TopAppBar(

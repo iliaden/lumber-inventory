@@ -23,10 +23,10 @@ fun TagsScreen(
     val uiState by viewModel.uiState.collectAsState()
     var showAddDialog by remember { mutableStateOf(false) }
     var newTagName by remember { mutableStateOf("") }
-    
+
     if (showAddDialog) {
         AlertDialog(
-            onDismissRequest = { 
+            onDismissRequest = {
                 showAddDialog = false
                 newTagName = ""
             },
@@ -54,7 +54,7 @@ fun TagsScreen(
                 }
             },
             dismissButton = {
-                TextButton(onClick = { 
+                TextButton(onClick = {
                     showAddDialog = false
                     newTagName = ""
                 }) {
@@ -63,7 +63,7 @@ fun TagsScreen(
             }
         )
     }
-    
+
     Scaffold(
         topBar = {
             TopAppBar(

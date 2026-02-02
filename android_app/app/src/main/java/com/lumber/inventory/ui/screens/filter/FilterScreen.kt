@@ -25,7 +25,7 @@ fun FilterScreen(
     var minThickness by remember { mutableStateOf("") }
     var maxThickness by remember { mutableStateOf("") }
     var selectedSurface by remember { mutableStateOf<Boolean?>(null) }
-    
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -74,7 +74,7 @@ fun FilterScreen(
                 text = "Filter by Species",
                 style = MaterialTheme.typography.titleSmall
             )
-            
+
             OutlinedTextField(
                 value = species,
                 onValueChange = { species = it },
@@ -83,12 +83,12 @@ fun FilterScreen(
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true
             )
-            
+
             Text(
                 text = "Filter by Surface",
                 style = MaterialTheme.typography.titleSmall
             )
-            
+
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
@@ -109,12 +109,12 @@ fun FilterScreen(
                     label = { Text(stringResource(R.string.label_planed)) }
                 )
             }
-            
+
             Text(
                 text = "Filter by Length",
                 style = MaterialTheme.typography.titleSmall
             )
-            
+
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
@@ -136,12 +136,12 @@ fun FilterScreen(
                     singleLine = true
                 )
             }
-            
+
             Text(
                 text = "Filter by Thickness",
                 style = MaterialTheme.typography.titleSmall
             )
-            
+
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
@@ -163,9 +163,9 @@ fun FilterScreen(
                     singleLine = true
                 )
             }
-            
+
             Spacer(modifier = Modifier.height(16.dp))
-            
+
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
@@ -183,7 +183,7 @@ fun FilterScreen(
                 ) {
                     Text(stringResource(R.string.btn_clear))
                 }
-                
+
                 Button(
                     onClick = {
                         // TODO: Apply filters through shared ViewModel

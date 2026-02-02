@@ -21,18 +21,18 @@ sealed class TagsUiState {
 class TagsViewModel @Inject constructor(
     private val repository: LumberRepository
 ) : ViewModel() {
-    
+
     private val _uiState = MutableStateFlow<TagsUiState>(TagsUiState.Loading)
     val uiState: StateFlow<TagsUiState> = _uiState.asStateFlow()
-    
+
     init {
         loadTags()
     }
-    
+
     fun loadTags() {
         viewModelScope.launch {
             _uiState.value = TagsUiState.Loading
-            
+
             repository.getTags()
                 .onSuccess { tags ->
                     _uiState.value = TagsUiState.Success(tags)
@@ -42,7 +42,7 @@ class TagsViewModel @Inject constructor(
                 }
         }
     }
-    
+
     fun createTag(name: String) {
         viewModelScope.launch {
             repository.createTag(name)
@@ -54,7 +54,7 @@ class TagsViewModel @Inject constructor(
                 }
         }
     }
-    
+
     fun deleteTag(id: Int) {
         viewModelScope.launch {
             repository.deleteTag(id)
