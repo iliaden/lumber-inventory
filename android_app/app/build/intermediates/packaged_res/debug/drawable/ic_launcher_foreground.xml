@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Background circle -->
+    <path
+        android:fillColor="#8B4513"
+        android:pathData="M54,54m-50,0a50,50 0,1 1,100 0a50,50 0,1 1,-100 0" />
+    <!-- Wood grain lines -->
+    <path
+        android:fillColor="#A0522D"
+        android:pathData="M20,40 Q54,35 88,40 Q54,45 20,40"
+        android:strokeWidth="0" />
+    <path
+        android:fillColor="#A0522D"
+        android:pathData="M20,54 Q54,49 88,54 Q54,59 20,54"
+        android:strokeWidth="0" />
+    <path
+        android:fillColor="#A0522D"
+        android:pathData="M20,68 Q54,63 88,68 Q54,73 20,68"
+        android:strokeWidth="0" />
+    <!-- Lumber/ruler icon -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M30,75 L30,33 L42,33 L42,75 Z" />
+    <path
+        android:fillColor="#8B4513"
+        android:pathData="M33,40 L39,40 M33,48 L39,48 M33,56 L39,56 M33,64 L39,64"
+        android:strokeColor="#8B4513"
+        android:strokeWidth="2" />
+    <!-- L letter for Lumber -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M52,33 L52,75 L78,75 L78,66 L61,66 L61,33 Z" />
+</vector>

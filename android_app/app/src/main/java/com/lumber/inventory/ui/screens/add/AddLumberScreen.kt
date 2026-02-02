@@ -97,9 +97,9 @@ fun AddLumberScreen(
             Card(
                 modifier = Modifier.fillMaxWidth(),
                 colors = CardDefaults.cardColors(
-                    containerColor = if (formState.fromReekon) 
-                        MaterialTheme.colorScheme.primaryContainer 
-                    else 
+                    containerColor = if (formState.fromReekon)
+                        MaterialTheme.colorScheme.primaryContainer
+                    else
                         MaterialTheme.colorScheme.surfaceVariant
                 )
             ) {
