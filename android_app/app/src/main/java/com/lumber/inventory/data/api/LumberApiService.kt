@@ -1,8 +1,23 @@
 package com.lumber.inventory.data.api
 
-import com.lumber.inventory.data.model.*
+import com.lumber.inventory.data.model.ApiResponse
+import com.lumber.inventory.data.model.CreateLumberRequest
+import com.lumber.inventory.data.model.HealthStatus
+import com.lumber.inventory.data.model.InventoryStats
+import com.lumber.inventory.data.model.Location
+import com.lumber.inventory.data.model.LocationRequest
+import com.lumber.inventory.data.model.Lumber
+import com.lumber.inventory.data.model.TagRequest
+import com.lumber.inventory.data.model.UpdateLumberRequest
 import retrofit2.Response
-import retrofit2.http.*
+import retrofit2.http.Body
+import retrofit2.http.DELETE
+import retrofit2.http.GET
+import retrofit2.http.POST
+import retrofit2.http.PUT
+import retrofit2.http.Path
+import retrofit2.http.Query
+import com.lumber.inventory.data.model.Tag as LumberTag
 
 /**
  * Retrofit API service interface for the Lumber Inventory REST API.
@@ -19,6 +34,9 @@ interface LumberApiService {
 
     @GET("stats")
     suspend fun getStats(): Response<ApiResponse<InventoryStats>>
+
+    @GET("species")
+    suspend fun getSpecies(): Response<ApiResponse<List<String>>>
 
     // ========================================================================
     // Lumber
@@ -78,19 +96,19 @@ interface LumberApiService {
     // ========================================================================
 
     @GET("tags")
-    suspend fun getTags(): Response<ApiResponse<List<Tag>>>
+    suspend fun getTags(): Response<ApiResponse<List<LumberTag>>>
 
     @GET("tags/{id}")
-    suspend fun getTag(@Path("id") id: Int): Response<ApiResponse<Tag>>
+    suspend fun getTag(@Path("id") id: Int): Response<ApiResponse<LumberTag>>
 
     @POST("tags")
-    suspend fun createTag(@Body request: TagRequest): Response<ApiResponse<Tag>>
+    suspend fun createTag(@Body request: TagRequest): Response<ApiResponse<LumberTag>>
 
     @PUT("tags/{id}")
     suspend fun updateTag(
         @Path("id") id: Int,
         @Body request: TagRequest
-    ): Response<ApiResponse<Tag>>
+    ): Response<ApiResponse<LumberTag>>
 
     @DELETE("tags/{id}")
     suspend fun deleteTag(@Path("id") id: Int): Response<ApiResponse<Unit>>

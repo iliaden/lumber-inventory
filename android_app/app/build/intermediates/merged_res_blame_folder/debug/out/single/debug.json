@@ -4,20 +4,16 @@
         "source": "com.lumber.inventory.app-main-60:/mipmap-xhdpi/ic_launcher_round.png"
     },
     {
-        "merged": "/Users/ilia/.gradle/daemon/8.5/com.lumber.inventory.app-merged_res-58:/xml_backup_rules.xml.flat",
-        "source": "/Users/ilia/.gradle/daemon/8.5/com.lumber.inventory.app-main-60:/xml/backup_rules.xml"
-    },
-    {
         "merged": "com.lumber.inventory.app-merged_res-58:/mipmap-xxhdpi_ic_launcher.png.flat",
         "source": "com.lumber.inventory.app-main-60:/mipmap-xxhdpi/ic_launcher.png"
     },
     {
-        "merged": "com.lumber.inventory.app-merged_res-58:/mipmap-hdpi_ic_launcher.png.flat",
-        "source": "com.lumber.inventory.app-main-60:/mipmap-hdpi/ic_launcher.png"
+        "merged": "com.lumber.inventory.app-merged_res-58:/xml_backup_rules.xml.flat",
+        "source": "com.lumber.inventory.app-main-60:/xml/backup_rules.xml"
     },
     {
-        "merged": "/Users/ilia/.gradle/daemon/8.5/com.lumber.inventory.app-merged_res-58:/xml_data_extraction_rules.xml.flat",
-        "source": "/Users/ilia/.gradle/daemon/8.5/com.lumber.inventory.app-main-60:/xml/data_extraction_rules.xml"
+        "merged": "com.lumber.inventory.app-merged_res-58:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.lumber.inventory.app-main-60:/mipmap-hdpi/ic_launcher.png"
     },
     {
         "merged": "com.lumber.inventory.app-merged_res-58:/mipmap-xhdpi_ic_launcher.png.flat",
@@ -58,6 +54,10 @@
     {
         "merged": "com.lumber.inventory.app-merged_res-58:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
         "source": "com.lumber.inventory.app-main-60:/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.lumber.inventory.app-merged_res-58:/xml_data_extraction_rules.xml.flat",
+        "source": "com.lumber.inventory.app-main-60:/xml/data_extraction_rules.xml"
     },
     {
         "merged": "com.lumber.inventory.app-merged_res-58:/mipmap-mdpi_ic_launcher_round.png.flat",

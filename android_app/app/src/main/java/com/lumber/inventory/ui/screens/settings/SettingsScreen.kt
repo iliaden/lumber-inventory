@@ -117,7 +117,7 @@ fun SettingsScreen(
                 }
             }
 
-            HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
+            Divider(modifier = Modifier.padding(vertical = 8.dp))
 
             Text(
                 text = "Data Management",
@@ -193,7 +193,7 @@ fun SettingsScreen(
                 }
             }
 
-            HorizontalDivider(modifier = Modifier.padding(vertical = 8.dp))
+            Divider(modifier = Modifier.padding(vertical = 8.dp))
 
             Text(
                 text = "About",

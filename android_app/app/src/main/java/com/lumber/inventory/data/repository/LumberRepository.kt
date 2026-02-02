@@ -164,6 +164,13 @@ class LumberRepository @Inject constructor(
         return safeApiCall { apiService.healthCheck() }
     }
 
+    /**
+     * Get list of all unique species in the inventory.
+     */
+    suspend fun getSpecies(): ApiResult<List<String>> {
+        return safeApiCall { apiService.getSpecies() }
+    }
+
     // ========================================================================
     // Helper Methods
     // ========================================================================

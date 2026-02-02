@@ -55,9 +55,10 @@ class SetupViewModel @Inject constructor(
             settingsRepository.setServerUrl(url)
 
             try {
-                val result = lumberRepository.checkHealth()
-                result.fold(
-                    onSuccess = { health ->
+                val result = lumberRepository.healthCheck()
+                when (result) {
+                    is com.lumber.inventory.data.api.ApiResult.Success -> {
+                        val health = result.data
                         if (health.status == "healthy") {
                             _uiState.value = _uiState.value.copy(
                                 isLoading = false,
@@ -71,14 +72,14 @@ class SetupViewModel @Inject constructor(
                                 errorMessage = "Server returned unhealthy status"
                             )
                         }
-                    },
-                    onFailure = { exception ->
+                    }
+                    is com.lumber.inventory.data.api.ApiResult.Error -> {
                         _uiState.value = _uiState.value.copy(
                             isLoading = false,
-                            errorMessage = "Connection failed: ${exception.message ?: "Unknown error"}"
+                            errorMessage = "Connection failed: ${result.message}"
                         )
                     }
-                )
+                }
             } catch (e: Exception) {
                 _uiState.value = _uiState.value.copy(
                     isLoading = false,

@@ -643,3 +643,20 @@ def get_stats():
             "species_counts": {species: count for species, count in species_counts},
         }
     )
+
+
+@api.route("/species", methods=["GET"])
+def get_species():
+    """
+    Get list of all unique wood species currently in the inventory.
+
+    Returns:
+        JSON array of species names (strings)
+    """
+    species_list = (
+        db.session.query(Lumber.species)
+        .distinct()
+        .order_by(Lumber.species)
+        .all()
+    )
+    return success_response(data=[species[0] for species in species_list])

@@ -110,17 +110,17 @@
 63            </intent-filter>
 64        </activity>
 65        <activity
-65-->[androidx.compose.ui:ui-tooling-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/cd7aa3974b9528bd4a0e3178eec1857b/transformed/ui-tooling-release/AndroidManifest.xml:23:9-25:39
+65-->[androidx.compose.ui:ui-tooling-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/701407e9e56b3008bdd61d8638d8a13a/transformed/ui-tooling-release/AndroidManifest.xml:23:9-25:39
 66            android:name="androidx.compose.ui.tooling.PreviewActivity"
-66-->[androidx.compose.ui:ui-tooling-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/cd7aa3974b9528bd4a0e3178eec1857b/transformed/ui-tooling-release/AndroidManifest.xml:24:13-71
+66-->[androidx.compose.ui:ui-tooling-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/701407e9e56b3008bdd61d8638d8a13a/transformed/ui-tooling-release/AndroidManifest.xml:24:13-71
 67            android:exported="true" />
-67-->[androidx.compose.ui:ui-tooling-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/cd7aa3974b9528bd4a0e3178eec1857b/transformed/ui-tooling-release/AndroidManifest.xml:25:13-36
+67-->[androidx.compose.ui:ui-tooling-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/701407e9e56b3008bdd61d8638d8a13a/transformed/ui-tooling-release/AndroidManifest.xml:25:13-36
 68        <activity
-68-->[androidx.compose.ui:ui-test-manifest:1.6.0] /Users/ilia/.gradle/caches/transforms-3/2a17f3b9208b40057ae1c753f9e8d8b9/transformed/ui-test-manifest-1.6.0/AndroidManifest.xml:23:9-25:39
+68-->[androidx.compose.ui:ui-test-manifest:1.6.1] /Users/ilia/.gradle/caches/transforms-3/7f210969b09fe644c3648babaf9c7b5d/transformed/ui-test-manifest-1.6.1/AndroidManifest.xml:23:9-25:39
 69            android:name="androidx.activity.ComponentActivity"
-69-->[androidx.compose.ui:ui-test-manifest:1.6.0] /Users/ilia/.gradle/caches/transforms-3/2a17f3b9208b40057ae1c753f9e8d8b9/transformed/ui-test-manifest-1.6.0/AndroidManifest.xml:24:13-63
+69-->[androidx.compose.ui:ui-test-manifest:1.6.1] /Users/ilia/.gradle/caches/transforms-3/7f210969b09fe644c3648babaf9c7b5d/transformed/ui-test-manifest-1.6.1/AndroidManifest.xml:24:13-63
 70            android:exported="true" />
-70-->[androidx.compose.ui:ui-test-manifest:1.6.0] /Users/ilia/.gradle/caches/transforms-3/2a17f3b9208b40057ae1c753f9e8d8b9/transformed/ui-test-manifest-1.6.0/AndroidManifest.xml:25:13-36
+70-->[androidx.compose.ui:ui-test-manifest:1.6.1] /Users/ilia/.gradle/caches/transforms-3/7f210969b09fe644c3648babaf9c7b5d/transformed/ui-test-manifest-1.6.1/AndroidManifest.xml:25:13-36
 71
 72        <provider
 72-->[androidx.emoji2:emoji2:1.3.0] /Users/ilia/.gradle/caches/transforms-3/71564c579c417c9ed1fa1fe2f9bc5ef6/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20

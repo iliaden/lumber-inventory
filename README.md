@@ -295,6 +295,7 @@ All API responses follow a consistent JSON format:
 |--------|----------|-------------|
 | GET | `/api/v1/health` | Health check - returns API status and version |
 | GET | `/api/v1/stats` | Get inventory statistics (counts, species breakdown) |
+| GET | `/api/v1/species` | Get list of all unique wood species in inventory |
 
 #### Lumber
 

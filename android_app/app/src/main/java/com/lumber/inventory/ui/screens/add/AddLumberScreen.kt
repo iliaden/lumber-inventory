@@ -1,12 +1,16 @@
 package com.lumber.inventory.ui.screens.add
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Bluetooth
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.Straighten
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -17,8 +21,10 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.lumber.inventory.R
+import com.lumber.inventory.data.model.Location
+import com.lumber.inventory.data.model.Tag
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
 fun AddLumberScreen(
     onNavigateBack: () -> Unit,
@@ -31,6 +37,7 @@ fun AddLumberScreen(
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val formState by viewModel.formState.collectAsState()
+    val dropdownData by viewModel.dropdownData.collectAsState()
     val snackbarHostState = remember { SnackbarHostState() }
 
     // Apply initial measurements from Reekon if provided
@@ -43,11 +50,19 @@ fun AddLumberScreen(
 
     LaunchedEffect(uiState) {
         when (uiState) {
-            is AddLumberUiState.Success -> onLumberAdded()
+            is AddLumberUiState.Success -> {
+                snackbarHostState.showSnackbar(
+                    message = "Lumber added successfully!",
+                    duration = SnackbarDuration.Short
+                )
+                // Reset state to Idle so user can continue adding
+                viewModel.resetUiState()
+            }
             is AddLumberUiState.Error -> {
                 snackbarHostState.showSnackbar(
                     message = (uiState as AddLumberUiState.Error).message
                 )
+                viewModel.resetUiState()
             }
             else -> {}
         }
@@ -82,15 +97,13 @@ fun AddLumberScreen(
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            OutlinedTextField(
+            // Species Dropdown with autocomplete
+            SpeciesDropdownField(
                 value = formState.species,
                 onValueChange = { viewModel.updateSpecies(it) },
-                label = { Text(stringResource(R.string.label_species)) },
-                placeholder = { Text(stringResource(R.string.hint_species)) },
+                existingSpecies = dropdownData.species,
                 isError = formState.speciesError != null,
-                supportingText = formState.speciesError?.let { { Text(it) } },
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true
+                errorMessage = formState.speciesError
             )
 
             // Reekon Measurement Button
@@ -205,22 +218,23 @@ fun AddLumberScreen(
                 )
             }
 
-            OutlinedTextField(
+            // Location Dropdown
+            LocationDropdownField(
                 value = formState.locationName,
                 onValueChange = { viewModel.updateLocationName(it) },
-                label = { Text(stringResource(R.string.label_location)) },
-                placeholder = { Text(stringResource(R.string.hint_new_location)) },
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true
+                selectedLocationId = formState.selectedLocationId,
+                onLocationSelected = { viewModel.selectLocation(it) },
+                locations = dropdownData.locations
             )
 
-            OutlinedTextField(
-                value = formState.tags,
-                onValueChange = { viewModel.updateTags(it) },
-                label = { Text(stringResource(R.string.label_tags)) },
-                placeholder = { Text("e.g., kiln-dried, project-table") },
-                modifier = Modifier.fillMaxWidth(),
-                singleLine = true
+            // Tags Selection
+            TagsSelectionField(
+                availableTags = dropdownData.tags,
+                selectedTagIds = formState.selectedTagIds,
+                customTags = formState.customTags,
+                onTagToggled = { viewModel.toggleTagSelection(it) },
+                onCustomTagAdded = { viewModel.addCustomTag(it) },
+                onCustomTagRemoved = { viewModel.removeCustomTag(it) }
             )
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -250,6 +264,292 @@ fun AddLumberScreen(
                         Text(stringResource(R.string.btn_save))
                     }
                 }
+            }
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun SpeciesDropdownField(
+    value: String,
+    onValueChange: (String) -> Unit,
+    existingSpecies: List<String>,
+    isError: Boolean,
+    errorMessage: String?
+) {
+    var expanded by remember { mutableStateOf(false) }
+    val filteredSpecies = remember(value, existingSpecies) {
+        if (value.isBlank()) {
+            existingSpecies
+        } else {
+            existingSpecies.filter { it.contains(value, ignoreCase = true) }
+        }
+    }
+
+    ExposedDropdownMenuBox(
+        expanded = expanded && filteredSpecies.isNotEmpty(),
+        onExpandedChange = { expanded = it }
+    ) {
+        OutlinedTextField(
+            value = value,
+            onValueChange = {
+                onValueChange(it)
+                expanded = true
+            },
+            label = { Text(stringResource(R.string.label_species)) },
+            placeholder = { Text(stringResource(R.string.hint_species)) },
+            isError = isError,
+            supportingText = if (errorMessage != null) {
+                { Text(errorMessage) }
+            } else if (existingSpecies.isNotEmpty() && value.isBlank()) {
+                { Text("Select from list or type new species") }
+            } else null,
+            modifier = Modifier
+                .fillMaxWidth()
+                .menuAnchor(),
+            singleLine = true,
+            trailingIcon = {
+                ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded && filteredSpecies.isNotEmpty())
+            }
+        )
+
+        if (filteredSpecies.isNotEmpty()) {
+            ExposedDropdownMenu(
+                expanded = expanded,
+                onDismissRequest = { expanded = false }
+            ) {
+                filteredSpecies.forEach { species ->
+                    DropdownMenuItem(
+                        text = { Text(species) },
+                        onClick = {
+                            onValueChange(species)
+                            expanded = false
+                        }
+                    )
+                }
+            }
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun LocationDropdownField(
+    value: String,
+    onValueChange: (String) -> Unit,
+    selectedLocationId: Int?,
+    onLocationSelected: (Location?) -> Unit,
+    locations: List<Location>
+) {
+    var expanded by remember { mutableStateOf(false) }
+    val filteredLocations = remember(value, locations, selectedLocationId) {
+        if (value.isBlank() || selectedLocationId != null) {
+            locations
+        } else {
+            locations.filter { it.name.contains(value, ignoreCase = true) }
+        }
+    }
+
+    ExposedDropdownMenuBox(
+        expanded = expanded,
+        onExpandedChange = { expanded = it }
+    ) {
+        OutlinedTextField(
+            value = value,
+            onValueChange = {
+                onValueChange(it)
+                expanded = true
+            },
+            label = { Text(stringResource(R.string.label_location)) },
+            placeholder = { Text(stringResource(R.string.hint_new_location)) },
+            modifier = Modifier
+                .fillMaxWidth()
+                .menuAnchor(),
+            singleLine = true,
+            supportingText = if (locations.isNotEmpty() && value.isBlank()) {
+                { Text("Select from list or type new location") }
+            } else if (selectedLocationId == null && value.isNotBlank() && !locations.any { it.name.equals(value, ignoreCase = true) }) {
+                { Text("Will create new location") }
+            } else null,
+            trailingIcon = {
+                ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded)
+            }
+        )
+
+        ExposedDropdownMenu(
+            expanded = expanded,
+            onDismissRequest = { expanded = false }
+        ) {
+            // Option to clear selection
+            if (selectedLocationId != null) {
+                DropdownMenuItem(
+                    text = {
+                        Text(
+                            "Clear selection",
+                            color = MaterialTheme.colorScheme.error
+                        )
+                    },
+                    onClick = {
+                        onLocationSelected(null)
+                        expanded = false
+                    }
+                )
+                HorizontalDivider()
+            }
+
+            if (filteredLocations.isEmpty()) {
+                DropdownMenuItem(
+                    text = { Text("No matching locations") },
+                    onClick = { },
+                    enabled = false
+                )
+            } else {
+                filteredLocations.forEach { location ->
+                    DropdownMenuItem(
+                        text = {
+                            Text(
+                                location.name,
+                                color = if (location.id == selectedLocationId)
+                                    MaterialTheme.colorScheme.primary
+                                else
+                                    MaterialTheme.colorScheme.onSurface
+                            )
+                        },
+                        onClick = {
+                            onLocationSelected(location)
+                            expanded = false
+                        }
+                    )
+                }
+            }
+        }
+    }
+}
+
+@OptIn(ExperimentalLayoutApi::class)
+@Composable
+private fun TagsSelectionField(
+    availableTags: List<Tag>,
+    selectedTagIds: Set<Int>,
+    customTags: Set<String>,
+    onTagToggled: (Tag) -> Unit,
+    onCustomTagAdded: (String) -> Unit,
+    onCustomTagRemoved: (String) -> Unit
+) {
+    var newTagText by remember { mutableStateOf("") }
+    var showAddField by remember { mutableStateOf(false) }
+
+    Column(
+        modifier = Modifier.fillMaxWidth(),
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        Text(
+            text = stringResource(R.string.label_tags),
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant
+        )
+
+        // Existing tags as filter chips
+        if (availableTags.isNotEmpty()) {
+            FlowRow(
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                availableTags.forEach { tag ->
+                    FilterChip(
+                        selected = selectedTagIds.contains(tag.id),
+                        onClick = { onTagToggled(tag) },
+                        label = { Text(tag.name) }
+                    )
+                }
+            }
+        }
+
+        // Custom tags (new tags that will be created)
+        if (customTags.isNotEmpty()) {
+            Text(
+                text = "New tags to create:",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.primary
+            )
+            FlowRow(
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                customTags.forEach { tagName ->
+                    InputChip(
+                        selected = true,
+                        onClick = { onCustomTagRemoved(tagName) },
+                        label = { Text(tagName) },
+                        trailingIcon = {
+                            Icon(
+                                imageVector = Icons.Default.Close,
+                                contentDescription = "Remove",
+                                modifier = Modifier.size(18.dp)
+                            )
+                        }
+                    )
+                }
+            }
+        }
+
+        // Add new tag button/field
+        if (showAddField) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                OutlinedTextField(
+                    value = newTagText,
+                    onValueChange = { newTagText = it },
+                    label = { Text("New tag name") },
+                    modifier = Modifier.weight(1f),
+                    singleLine = true
+                )
+                IconButton(
+                    onClick = {
+                        if (newTagText.isNotBlank()) {
+                            // Check if this tag already exists
+                            val existingTag = availableTags.find {
+                                it.name.equals(newTagText.trim(), ignoreCase = true)
+                            }
+                            if (existingTag != null) {
+                                // Select existing tag instead
+                                if (!selectedTagIds.contains(existingTag.id)) {
+                                    onTagToggled(existingTag)
+                                }
+                            } else {
+                                onCustomTagAdded(newTagText)
+                            }
+                            newTagText = ""
+                        }
+                        showAddField = false
+                    }
+                ) {
+                    Icon(Icons.Default.Add, contentDescription = "Add")
+                }
+                IconButton(
+                    onClick = {
+                        newTagText = ""
+                        showAddField = false
+                    }
+                ) {
+                    Icon(Icons.Default.Close, contentDescription = "Cancel")
+                }
+            }
+        } else {
+            TextButton(
+                onClick = { showAddField = true }
+            ) {
+                Icon(
+                    Icons.Default.Add,
+                    contentDescription = null,
+                    modifier = Modifier.size(18.dp)
+                )
+                Spacer(modifier = Modifier.width(4.dp))
+                Text("Add new tag")
             }
         }
     }

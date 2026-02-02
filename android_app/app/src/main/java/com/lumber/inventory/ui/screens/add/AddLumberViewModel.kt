@@ -3,6 +3,8 @@ package com.lumber.inventory.ui.screens.add
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.lumber.inventory.data.model.CreateLumberRequest
+import com.lumber.inventory.data.model.Location
+import com.lumber.inventory.data.model.Tag
 import com.lumber.inventory.data.repository.LumberRepository
 import com.lumber.inventory.util.FractionUtils
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -20,7 +22,9 @@ data class LumberFormState(
     val thickness: String = "",
     val planed: Boolean = false,
     val locationName: String = "",
-    val tags: String = "",
+    val selectedLocationId: Int? = null,
+    val selectedTagIds: Set<Int> = emptySet(),
+    val customTags: Set<String> = emptySet(),
     val speciesError: String? = null,
     val lengthError: String? = null,
     val widthError: String? = null,
@@ -28,10 +32,17 @@ data class LumberFormState(
     val fromReekon: Boolean = false
 )
 
+data class DropdownData(
+    val species: List<String> = emptyList(),
+    val locations: List<Location> = emptyList(),
+    val tags: List<Tag> = emptyList(),
+    val isLoading: Boolean = true
+)
+
 sealed class AddLumberUiState {
     object Idle : AddLumberUiState()
     object Loading : AddLumberUiState()
-    object Success : AddLumberUiState()
+    data class Success(val clearMeasurementsOnly: Boolean = false) : AddLumberUiState()
     data class Error(val message: String) : AddLumberUiState()
 }
 
@@ -45,6 +56,45 @@ class AddLumberViewModel @Inject constructor(
 
     private val _uiState = MutableStateFlow<AddLumberUiState>(AddLumberUiState.Idle)
     val uiState: StateFlow<AddLumberUiState> = _uiState.asStateFlow()
+
+    private val _dropdownData = MutableStateFlow(DropdownData())
+    val dropdownData: StateFlow<DropdownData> = _dropdownData.asStateFlow()
+
+    init {
+        loadDropdownData()
+    }
+
+    private fun loadDropdownData() {
+        viewModelScope.launch {
+            _dropdownData.update { it.copy(isLoading = true) }
+
+            val speciesResult = repository.getSpecies()
+            val locationsResult = repository.getLocations()
+            val tagsResult = repository.getTags()
+
+            _dropdownData.update { current ->
+                current.copy(
+                    species = when (speciesResult) {
+                        is com.lumber.inventory.data.api.ApiResult.Success -> speciesResult.data
+                        else -> emptyList()
+                    },
+                    locations = when (locationsResult) {
+                        is com.lumber.inventory.data.api.ApiResult.Success -> locationsResult.data
+                        else -> emptyList()
+                    },
+                    tags = when (tagsResult) {
+                        is com.lumber.inventory.data.api.ApiResult.Success -> tagsResult.data
+                        else -> emptyList()
+                    },
+                    isLoading = false
+                )
+            }
+        }
+    }
+
+    fun refreshDropdownData() {
+        loadDropdownData()
+    }
 
     /**
      * Set initial measurements from Reekon device.
@@ -80,11 +130,42 @@ class AddLumberViewModel @Inject constructor(
     }
 
     fun updateLocationName(value: String) {
-        _formState.update { it.copy(locationName = value) }
+        _formState.update { it.copy(locationName = value, selectedLocationId = null) }
     }
 
-    fun updateTags(value: String) {
-        _formState.update { it.copy(tags = value) }
+    fun selectLocation(location: Location?) {
+        _formState.update {
+            it.copy(
+                locationName = location?.name ?: "",
+                selectedLocationId = location?.id
+            )
+        }
+    }
+
+    fun toggleTagSelection(tag: Tag) {
+        _formState.update { current ->
+            val newSelection = if (current.selectedTagIds.contains(tag.id)) {
+                current.selectedTagIds - tag.id
+            } else {
+                current.selectedTagIds + tag.id
+            }
+            current.copy(selectedTagIds = newSelection)
+        }
+    }
+
+    fun addCustomTag(tagName: String) {
+        val trimmedName = tagName.trim()
+        if (trimmedName.isNotBlank()) {
+            _formState.update { current ->
+                current.copy(customTags = current.customTags + trimmedName)
+            }
+        }
+    }
+
+    fun removeCustomTag(tagName: String) {
+        _formState.update { current ->
+            current.copy(customTags = current.customTags - tagName)
+        }
     }
 
     private fun validateForm(): Boolean {
@@ -123,6 +204,31 @@ class AddLumberViewModel @Inject constructor(
         return isValid
     }
 
+    /**
+     * Clear only the measurement fields (length, width, thickness) while preserving
+     * species, location, tags, and planed status for bulk entry.
+     */
+    private fun clearMeasurementsOnly() {
+        _formState.update { current ->
+            current.copy(
+                length = "",
+                width = "",
+                thickness = "",
+                lengthError = null,
+                widthError = null,
+                thicknessError = null,
+                fromReekon = false
+            )
+        }
+    }
+
+    /**
+     * Reset the UI state back to Idle so user can continue adding more items.
+     */
+    fun resetUiState() {
+        _uiState.value = AddLumberUiState.Idle
+    }
+
     fun saveLumber() {
         if (!validateForm()) return
 
@@ -130,9 +236,10 @@ class AddLumberViewModel @Inject constructor(
             _uiState.value = AddLumberUiState.Loading
 
             val form = _formState.value
-            val tags = form.tags.split(",")
-                .map { it.trim() }
-                .filter { it.isNotBlank() }
+
+            // Collect tags: selected tag IDs + custom tag names
+            val selectedTagIds = form.selectedTagIds.toList().takeIf { it.isNotEmpty() }
+            val customTagNames = form.customTags.toList().takeIf { it.isNotEmpty() }
 
             val request = CreateLumberRequest(
                 species = form.species.trim(),
@@ -140,13 +247,21 @@ class AddLumberViewModel @Inject constructor(
                 width = form.width.trim(),
                 thickness = form.thickness.trim(),
                 planed = form.planed,
-                locationName = form.locationName.trim().takeIf { it.isNotBlank() },
-                tags = tags.takeIf { it.isNotEmpty() }
+                locationId = form.selectedLocationId,
+                locationName = if (form.selectedLocationId == null && form.locationName.isNotBlank()) {
+                    form.locationName.trim()
+                } else null,
+                tagIds = selectedTagIds,
+                tags = customTagNames
             )
 
             repository.createLumber(request)
                 .onSuccess {
-                    _uiState.value = AddLumberUiState.Success
+                    // Clear only measurements for bulk entry workflow
+                    clearMeasurementsOnly()
+                    // Refresh dropdown data to include any new species/tags/locations
+                    refreshDropdownData()
+                    _uiState.value = AddLumberUiState.Success(clearMeasurementsOnly = true)
                 }
                 .onError { message ->
                     _uiState.value = AddLumberUiState.Error(message)

@@ -4,32 +4,32 @@ ADDED from /Users/ilia/lumber-inventory/android_app/app/src/main/AndroidManifest
 INJECTED from /Users/ilia/lumber-inventory/android_app/app/src/main/AndroidManifest.xml:2:1-43:12
 INJECTED from /Users/ilia/lumber-inventory/android_app/app/src/main/AndroidManifest.xml:2:1-43:12
 INJECTED from /Users/ilia/lumber-inventory/android_app/app/src/main/AndroidManifest.xml:2:1-43:12
-MERGED from [androidx.compose.material3:material3:1.1.2] /Users/ilia/.gradle/caches/transforms-3/d0b7b50d3f759dd17b84bb00417ab2a0/transformed/material3-1.1.2/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.hilt:hilt-navigation-compose:1.1.0] /Users/ilia/.gradle/caches/transforms-3/4f59168d29ba8185e6637170cb497b08/transformed/hilt-navigation-compose-1.1.0/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.hilt:hilt-navigation:1.1.0] /Users/ilia/.gradle/caches/transforms-3/83d70dd3abf0393116b558f86544fbd2/transformed/hilt-navigation-1.1.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.hilt:hilt-navigation-compose:1.2.0] /Users/ilia/.gradle/caches/transforms-3/92a178f8ddf6320db7b41fb6592a8852/transformed/hilt-navigation-compose-1.2.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.hilt:hilt-navigation:1.2.0] /Users/ilia/.gradle/caches/transforms-3/92101275919954dabc784cce7e50a5b7/transformed/hilt-navigation-1.2.0/AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.dagger:hilt-android:2.50] /Users/ilia/.gradle/caches/transforms-3/6868469ebebb00edbaf66be6d8db7417/transformed/hilt-android-2.50/AndroidManifest.xml:16:1-19:12
-MERGED from [androidx.navigation:navigation-common:2.7.6] /Users/ilia/.gradle/caches/transforms-3/0539c978eaca5ff7bbcbaab0080d0e31/transformed/navigation-common-2.7.6/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.navigation:navigation-runtime:2.7.6] /Users/ilia/.gradle/caches/transforms-3/bdbd194f1f637803fa9b8820e1036ae1/transformed/navigation-runtime-2.7.6/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.navigation:navigation-common-ktx:2.7.6] /Users/ilia/.gradle/caches/transforms-3/d190328c03294d797df8abc437e65236/transformed/navigation-common-ktx-2.7.6/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.navigation:navigation-runtime-ktx:2.7.6] /Users/ilia/.gradle/caches/transforms-3/6ebfb7f3b851064546008bfdf6121d6f/transformed/navigation-runtime-ktx-2.7.6/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.navigation:navigation-compose:2.7.6] /Users/ilia/.gradle/caches/transforms-3/c2e4605a72974ca4cde51bee40b5b098/transformed/navigation-compose-2.7.6/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.material:material-ripple-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/7225a1291a4ed6df06be1be5e2be8b32/transformed/material-ripple-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.material:material-icons-core-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/9bdddf392d8194a0ae0ab4a4bc6cafbf/transformed/material-icons-core-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.material:material-icons-extended-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/91a72e363ca588a7397226cef645c2c3/transformed/material-icons-extended-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.material:material-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/527c9d649558a528f88b98477f1a8626/transformed/material-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.animation:animation-core-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/ce8d75978c27d2e170582baba831b5a2/transformed/animation-core-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.animation:animation-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/e12a5b5b6f0148896c2f30f899caedd1/transformed/animation-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.foundation:foundation-layout-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/dc838e78c1fe9444e01f670db9f40483/transformed/foundation-layout-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.foundation:foundation-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/bde892e6c70bea202d22994238d05ec6/transformed/foundation-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-tooling-data-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/3dc11b25bc4f947368aa497222d9e4c9/transformed/ui-tooling-data-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-unit-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/1235129198b5edb7a8922f22253e5333/transformed/ui-unit-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-geometry-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/ef31e2e1df1e1eff4b95e915a445bca7/transformed/ui-geometry-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-util-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/c8cb3398bb81dd010e1cf7d0ea5957b8/transformed/ui-util-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-text-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/465b5cfb989e4001c89478115ba3f0c9/transformed/ui-text-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/3c82870300c2fd180ad8983b3fef2583/transformed/ui-tooling-preview-release/AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.compose.ui:ui-tooling-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/cd7aa3974b9528bd4a0e3178eec1857b/transformed/ui-tooling-release/AndroidManifest.xml:17:1-28:12
-MERGED from [androidx.compose.ui:ui-graphics-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/6870c94f473a112c15128a0bdffa946f/transformed/ui-graphics-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-test-manifest:1.6.0] /Users/ilia/.gradle/caches/transforms-3/2a17f3b9208b40057ae1c753f9e8d8b9/transformed/ui-test-manifest-1.6.0/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.navigation:navigation-common:2.7.7] /Users/ilia/.gradle/caches/transforms-3/7e1ef7af00d3e46a03c9ca8543c1df0e/transformed/navigation-common-2.7.7/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-runtime:2.7.7] /Users/ilia/.gradle/caches/transforms-3/5de52d684b0402072409afdeeefb1f13/transformed/navigation-runtime-2.7.7/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-common-ktx:2.7.7] /Users/ilia/.gradle/caches/transforms-3/ca45b46c86beba142cdc23ec0922ac23/transformed/navigation-common-ktx-2.7.7/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.7.7] /Users/ilia/.gradle/caches/transforms-3/941427ba588f765a93ae5082fb5d9624/transformed/navigation-runtime-ktx-2.7.7/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.navigation:navigation-compose:2.7.7] /Users/ilia/.gradle/caches/transforms-3/77bb0e88406e1fab41d439f40a9b8741/transformed/navigation-compose-2.7.7/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material3:material3-android:1.2.0] /Users/ilia/.gradle/caches/transforms-3/6010e2df1dd61e22a284ec8663e8bb29/transformed/material3-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.material:material-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/c298b332fb52fdea42e178d9ca0d3133/transformed/material-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-icons-core-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/90b6bb8199bae73697edb31907067e1c/transformed/material-icons-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-icons-extended-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/09963c2a47de5e847a8cb610ae1ca081/transformed/material-icons-extended-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.material:material-ripple-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/5bd9093ea3ce9a8afacbe6fe87d8305f/transformed/material-ripple-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/33f6b8aa4718119a7409975315317682/transformed/foundation-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/a15c73194c622dcb830b3fb6fe566f01/transformed/foundation-layout-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-core-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/777d0bd2ef5a8df0821ade9a426794d6/transformed/animation-core-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.animation:animation-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/54353e09ce25cbaba58328e65a31189b/transformed/animation-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/a8a79969437bb0b3cb3c1be889212d39/transformed/ui-tooling-data-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-unit-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/a8a8e0153e8636056130e382dfd8ecdf/transformed/ui-unit-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-text-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/4f05b5865bcbfbbf945c8d8fdaaeb523/transformed/ui-text-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-util-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/0e753d93a1d4616d2a56e3f587d7521a/transformed/ui-util-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-geometry-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/7833252080caa01a9d11c19a2bea44f3/transformed/ui-geometry-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/1c14f5486ccdf128c276e8396a26f6ab/transformed/ui-tooling-preview-release/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.ui:ui-tooling-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/701407e9e56b3008bdd61d8638d8a13a/transformed/ui-tooling-release/AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.compose.ui:ui-graphics-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/096db8245c6c60ec31548be28c53174e/transformed/ui-graphics-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-test-manifest:1.6.1] /Users/ilia/.gradle/caches/transforms-3/7f210969b09fe644c3648babaf9c7b5d/transformed/ui-test-manifest-1.6.1/AndroidManifest.xml:17:1-28:12
 MERGED from [androidx.fragment:fragment:1.5.1] /Users/ilia/.gradle/caches/transforms-3/4dd1b3799b0120d78e0100fde3a38f76/transformed/fragment-1.5.1/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.activity:activity:1.8.2] /Users/ilia/.gradle/caches/transforms-3/d0f86f9e9ebe7fa8eb070052a0014bb4/transformed/activity-1.8.2/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.activity:activity-ktx:1.8.2] /Users/ilia/.gradle/caches/transforms-3/f6c6e13d4a0b867bb7bb5c78e76f45f5/transformed/activity-ktx-1.8.2/AndroidManifest.xml:2:1-7:12
@@ -48,7 +48,7 @@ MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] /Users/ilia/.grad
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] /Users/ilia/.gradle/caches/transforms-3/939768d5bf5f5ed91fdae6c163baae33/transformed/lifecycle-runtime-2.7.0/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] /Users/ilia/.gradle/caches/transforms-3/df0c1917b39d599082d996722bf51ee1/transformed/lifecycle-runtime-ktx-2.7.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0] /Users/ilia/.gradle/caches/transforms-3/769cff15d5d80322707de08734960f1e/transformed/lifecycle-viewmodel-compose-2.7.0/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.ui:ui-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/32b89b96f7e2f2ce677d656179f3789f/transformed/ui-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.ui:ui-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/576ccb08b83f8ab094d8a4eaea60d2b0/transformed/ui-release/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/ilia/.gradle/caches/transforms-3/04f5095593c9906f591eb809364480a7/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.autofill:autofill:1.0.0] /Users/ilia/.gradle/caches/transforms-3/db418f30c16a060ae7fb874cb6d772f2/transformed/autofill-1.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.customview:customview:1.0.0] /Users/ilia/.gradle/caches/transforms-3/971a89509d98e8eb891b43eb21fe739f/transformed/customview-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -56,10 +56,10 @@ MERGED from [androidx.core:core:1.12.0] /Users/ilia/.gradle/caches/transforms-3/
 MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] /Users/ilia/.gradle/caches/transforms-3/2ceda4cdfcafaaaced83763bf923edbb/transformed/customview-poolingcontainer-1.0.0/AndroidManifest.xml:17:1-23:12
 MERGED from [androidx.core:core-ktx:1.12.0] /Users/ilia/.gradle/caches/transforms-3/e4733c3228f17e330b8f5090e3592660/transformed/core-ktx-1.12.0/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.datastore:datastore-preferences:1.0.0] /Users/ilia/.gradle/caches/transforms-3/55909c9186597d03faa57d7d9f1e1093/transformed/datastore-preferences-1.0.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.annotation:annotation-experimental:1.3.1] /Users/ilia/.gradle/caches/transforms-3/b0b9c70eb1b808779188c749500c8195/transformed/annotation-experimental-1.3.1/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.datastore:datastore:1.0.0] /Users/ilia/.gradle/caches/transforms-3/12486575a825d821333be0ffebdcfb09/transformed/datastore-1.0.0/AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.compose.runtime:runtime-saveable-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/d0f7f59dea65f6bcaf4f21bf06ad45bb/transformed/runtime-saveable-release/AndroidManifest.xml:2:1-7:12
-MERGED from [androidx.compose.runtime:runtime-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/251227eb53a63fcaa07df7a62b14fac4/transformed/runtime-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/8ae199b5318ca7f6dec33683e1193ea7/transformed/runtime-saveable-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.compose.runtime:runtime-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/c3bdfee14bf292a23a65bbe59101fce1/transformed/runtime-release/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] /Users/ilia/.gradle/caches/transforms-3/367b6a6657fb7e82f0d3df40ef95b197/transformed/annotation-experimental-1.4.0/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/ilia/.gradle/caches/transforms-3/92bc21711a4b44e84eed0f5f0310abf5/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/ilia/.gradle/caches/transforms-3/313cd9687036ecadcb39a03d0d8b25f8/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.2.0] /Users/ilia/.gradle/caches/transforms-3/87adaafae5b93965ac5c8212f0ff8be2/transformed/core-runtime-2.2.0/AndroidManifest.xml:17:1-22:12
@@ -122,10 +122,10 @@ ADDED from /Users/ilia/lumber-inventory/android_app/app/src/main/AndroidManifest
 application
 ADDED from /Users/ilia/lumber-inventory/android_app/app/src/main/AndroidManifest.xml:19:5-41:19
 INJECTED from /Users/ilia/lumber-inventory/android_app/app/src/main/AndroidManifest.xml:19:5-41:19
-MERGED from [androidx.compose.ui:ui-tooling-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/cd7aa3974b9528bd4a0e3178eec1857b/transformed/ui-tooling-release/AndroidManifest.xml:22:5-26:19
-MERGED from [androidx.compose.ui:ui-tooling-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/cd7aa3974b9528bd4a0e3178eec1857b/transformed/ui-tooling-release/AndroidManifest.xml:22:5-26:19
-MERGED from [androidx.compose.ui:ui-test-manifest:1.6.0] /Users/ilia/.gradle/caches/transforms-3/2a17f3b9208b40057ae1c753f9e8d8b9/transformed/ui-test-manifest-1.6.0/AndroidManifest.xml:22:5-26:19
-MERGED from [androidx.compose.ui:ui-test-manifest:1.6.0] /Users/ilia/.gradle/caches/transforms-3/2a17f3b9208b40057ae1c753f9e8d8b9/transformed/ui-test-manifest-1.6.0/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/701407e9e56b3008bdd61d8638d8a13a/transformed/ui-tooling-release/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-tooling-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/701407e9e56b3008bdd61d8638d8a13a/transformed/ui-tooling-release/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-test-manifest:1.6.1] /Users/ilia/.gradle/caches/transforms-3/7f210969b09fe644c3648babaf9c7b5d/transformed/ui-test-manifest-1.6.1/AndroidManifest.xml:22:5-26:19
+MERGED from [androidx.compose.ui:ui-test-manifest:1.6.1] /Users/ilia/.gradle/caches/transforms-3/7f210969b09fe644c3648babaf9c7b5d/transformed/ui-test-manifest-1.6.1/AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/ilia/.gradle/caches/transforms-3/71564c579c417c9ed1fa1fe2f9bc5ef6/transformed/emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
 MERGED from [androidx.emoji2:emoji2:1.3.0] /Users/ilia/.gradle/caches/transforms-3/71564c579c417c9ed1fa1fe2f9bc5ef6/transformed/emoji2-1.3.0/AndroidManifest.xml:23:5-33:19
 MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/ilia/.gradle/caches/transforms-3/f95faf2b34bdc08e88a3992a9e26ce72/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:23:5-33:19
@@ -186,58 +186,58 @@ uses-sdk
 INJECTED from /Users/ilia/lumber-inventory/android_app/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/ilia/lumber-inventory/android_app/app/src/main/AndroidManifest.xml
 INJECTED from /Users/ilia/lumber-inventory/android_app/app/src/main/AndroidManifest.xml
-MERGED from [androidx.compose.material3:material3:1.1.2] /Users/ilia/.gradle/caches/transforms-3/d0b7b50d3f759dd17b84bb00417ab2a0/transformed/material3-1.1.2/AndroidManifest.xml:20:5-44
-MERGED from [androidx.compose.material3:material3:1.1.2] /Users/ilia/.gradle/caches/transforms-3/d0b7b50d3f759dd17b84bb00417ab2a0/transformed/material3-1.1.2/AndroidManifest.xml:20:5-44
-MERGED from [androidx.hilt:hilt-navigation-compose:1.1.0] /Users/ilia/.gradle/caches/transforms-3/4f59168d29ba8185e6637170cb497b08/transformed/hilt-navigation-compose-1.1.0/AndroidManifest.xml:5:5-44
-MERGED from [androidx.hilt:hilt-navigation-compose:1.1.0] /Users/ilia/.gradle/caches/transforms-3/4f59168d29ba8185e6637170cb497b08/transformed/hilt-navigation-compose-1.1.0/AndroidManifest.xml:5:5-44
-MERGED from [androidx.hilt:hilt-navigation:1.1.0] /Users/ilia/.gradle/caches/transforms-3/83d70dd3abf0393116b558f86544fbd2/transformed/hilt-navigation-1.1.0/AndroidManifest.xml:5:5-44
-MERGED from [androidx.hilt:hilt-navigation:1.1.0] /Users/ilia/.gradle/caches/transforms-3/83d70dd3abf0393116b558f86544fbd2/transformed/hilt-navigation-1.1.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.hilt:hilt-navigation-compose:1.2.0] /Users/ilia/.gradle/caches/transforms-3/92a178f8ddf6320db7b41fb6592a8852/transformed/hilt-navigation-compose-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.hilt:hilt-navigation-compose:1.2.0] /Users/ilia/.gradle/caches/transforms-3/92a178f8ddf6320db7b41fb6592a8852/transformed/hilt-navigation-compose-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.hilt:hilt-navigation:1.2.0] /Users/ilia/.gradle/caches/transforms-3/92101275919954dabc784cce7e50a5b7/transformed/hilt-navigation-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.hilt:hilt-navigation:1.2.0] /Users/ilia/.gradle/caches/transforms-3/92101275919954dabc784cce7e50a5b7/transformed/hilt-navigation-1.2.0/AndroidManifest.xml:5:5-44
 MERGED from [com.google.dagger:hilt-android:2.50] /Users/ilia/.gradle/caches/transforms-3/6868469ebebb00edbaf66be6d8db7417/transformed/hilt-android-2.50/AndroidManifest.xml:18:3-42
 MERGED from [com.google.dagger:hilt-android:2.50] /Users/ilia/.gradle/caches/transforms-3/6868469ebebb00edbaf66be6d8db7417/transformed/hilt-android-2.50/AndroidManifest.xml:18:3-42
-MERGED from [androidx.navigation:navigation-common:2.7.6] /Users/ilia/.gradle/caches/transforms-3/0539c978eaca5ff7bbcbaab0080d0e31/transformed/navigation-common-2.7.6/AndroidManifest.xml:20:5-44
-MERGED from [androidx.navigation:navigation-common:2.7.6] /Users/ilia/.gradle/caches/transforms-3/0539c978eaca5ff7bbcbaab0080d0e31/transformed/navigation-common-2.7.6/AndroidManifest.xml:20:5-44
-MERGED from [androidx.navigation:navigation-runtime:2.7.6] /Users/ilia/.gradle/caches/transforms-3/bdbd194f1f637803fa9b8820e1036ae1/transformed/navigation-runtime-2.7.6/AndroidManifest.xml:20:5-44
-MERGED from [androidx.navigation:navigation-runtime:2.7.6] /Users/ilia/.gradle/caches/transforms-3/bdbd194f1f637803fa9b8820e1036ae1/transformed/navigation-runtime-2.7.6/AndroidManifest.xml:20:5-44
-MERGED from [androidx.navigation:navigation-common-ktx:2.7.6] /Users/ilia/.gradle/caches/transforms-3/d190328c03294d797df8abc437e65236/transformed/navigation-common-ktx-2.7.6/AndroidManifest.xml:5:5-44
-MERGED from [androidx.navigation:navigation-common-ktx:2.7.6] /Users/ilia/.gradle/caches/transforms-3/d190328c03294d797df8abc437e65236/transformed/navigation-common-ktx-2.7.6/AndroidManifest.xml:5:5-44
-MERGED from [androidx.navigation:navigation-runtime-ktx:2.7.6] /Users/ilia/.gradle/caches/transforms-3/6ebfb7f3b851064546008bfdf6121d6f/transformed/navigation-runtime-ktx-2.7.6/AndroidManifest.xml:5:5-44
-MERGED from [androidx.navigation:navigation-runtime-ktx:2.7.6] /Users/ilia/.gradle/caches/transforms-3/6ebfb7f3b851064546008bfdf6121d6f/transformed/navigation-runtime-ktx-2.7.6/AndroidManifest.xml:5:5-44
-MERGED from [androidx.navigation:navigation-compose:2.7.6] /Users/ilia/.gradle/caches/transforms-3/c2e4605a72974ca4cde51bee40b5b098/transformed/navigation-compose-2.7.6/AndroidManifest.xml:5:5-44
-MERGED from [androidx.navigation:navigation-compose:2.7.6] /Users/ilia/.gradle/caches/transforms-3/c2e4605a72974ca4cde51bee40b5b098/transformed/navigation-compose-2.7.6/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.material:material-ripple-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/7225a1291a4ed6df06be1be5e2be8b32/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.material:material-ripple-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/7225a1291a4ed6df06be1be5e2be8b32/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.material:material-icons-core-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/9bdddf392d8194a0ae0ab4a4bc6cafbf/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.material:material-icons-core-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/9bdddf392d8194a0ae0ab4a4bc6cafbf/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.material:material-icons-extended-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/91a72e363ca588a7397226cef645c2c3/transformed/material-icons-extended-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.material:material-icons-extended-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/91a72e363ca588a7397226cef645c2c3/transformed/material-icons-extended-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.material:material-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/527c9d649558a528f88b98477f1a8626/transformed/material-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.material:material-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/527c9d649558a528f88b98477f1a8626/transformed/material-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.animation:animation-core-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/ce8d75978c27d2e170582baba831b5a2/transformed/animation-core-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.animation:animation-core-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/ce8d75978c27d2e170582baba831b5a2/transformed/animation-core-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.animation:animation-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/e12a5b5b6f0148896c2f30f899caedd1/transformed/animation-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.animation:animation-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/e12a5b5b6f0148896c2f30f899caedd1/transformed/animation-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.foundation:foundation-layout-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/dc838e78c1fe9444e01f670db9f40483/transformed/foundation-layout-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.foundation:foundation-layout-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/dc838e78c1fe9444e01f670db9f40483/transformed/foundation-layout-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.foundation:foundation-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/bde892e6c70bea202d22994238d05ec6/transformed/foundation-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.foundation:foundation-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/bde892e6c70bea202d22994238d05ec6/transformed/foundation-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-tooling-data-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/3dc11b25bc4f947368aa497222d9e4c9/transformed/ui-tooling-data-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-tooling-data-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/3dc11b25bc4f947368aa497222d9e4c9/transformed/ui-tooling-data-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-unit-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/1235129198b5edb7a8922f22253e5333/transformed/ui-unit-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-unit-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/1235129198b5edb7a8922f22253e5333/transformed/ui-unit-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-geometry-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/ef31e2e1df1e1eff4b95e915a445bca7/transformed/ui-geometry-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-geometry-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/ef31e2e1df1e1eff4b95e915a445bca7/transformed/ui-geometry-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-util-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/c8cb3398bb81dd010e1cf7d0ea5957b8/transformed/ui-util-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-util-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/c8cb3398bb81dd010e1cf7d0ea5957b8/transformed/ui-util-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-text-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/465b5cfb989e4001c89478115ba3f0c9/transformed/ui-text-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-text-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/465b5cfb989e4001c89478115ba3f0c9/transformed/ui-text-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/3c82870300c2fd180ad8983b3fef2583/transformed/ui-tooling-preview-release/AndroidManifest.xml:20:5-44
-MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/3c82870300c2fd180ad8983b3fef2583/transformed/ui-tooling-preview-release/AndroidManifest.xml:20:5-44
-MERGED from [androidx.compose.ui:ui-tooling-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/cd7aa3974b9528bd4a0e3178eec1857b/transformed/ui-tooling-release/AndroidManifest.xml:20:5-44
-MERGED from [androidx.compose.ui:ui-tooling-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/cd7aa3974b9528bd4a0e3178eec1857b/transformed/ui-tooling-release/AndroidManifest.xml:20:5-44
-MERGED from [androidx.compose.ui:ui-graphics-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/6870c94f473a112c15128a0bdffa946f/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-graphics-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/6870c94f473a112c15128a0bdffa946f/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-test-manifest:1.6.0] /Users/ilia/.gradle/caches/transforms-3/2a17f3b9208b40057ae1c753f9e8d8b9/transformed/ui-test-manifest-1.6.0/AndroidManifest.xml:20:5-44
-MERGED from [androidx.compose.ui:ui-test-manifest:1.6.0] /Users/ilia/.gradle/caches/transforms-3/2a17f3b9208b40057ae1c753f9e8d8b9/transformed/ui-test-manifest-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common:2.7.7] /Users/ilia/.gradle/caches/transforms-3/7e1ef7af00d3e46a03c9ca8543c1df0e/transformed/navigation-common-2.7.7/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common:2.7.7] /Users/ilia/.gradle/caches/transforms-3/7e1ef7af00d3e46a03c9ca8543c1df0e/transformed/navigation-common-2.7.7/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.7.7] /Users/ilia/.gradle/caches/transforms-3/5de52d684b0402072409afdeeefb1f13/transformed/navigation-runtime-2.7.7/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-runtime:2.7.7] /Users/ilia/.gradle/caches/transforms-3/5de52d684b0402072409afdeeefb1f13/transformed/navigation-runtime-2.7.7/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.7.7] /Users/ilia/.gradle/caches/transforms-3/ca45b46c86beba142cdc23ec0922ac23/transformed/navigation-common-ktx-2.7.7/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-common-ktx:2.7.7] /Users/ilia/.gradle/caches/transforms-3/ca45b46c86beba142cdc23ec0922ac23/transformed/navigation-common-ktx-2.7.7/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.7.7] /Users/ilia/.gradle/caches/transforms-3/941427ba588f765a93ae5082fb5d9624/transformed/navigation-runtime-ktx-2.7.7/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.7.7] /Users/ilia/.gradle/caches/transforms-3/941427ba588f765a93ae5082fb5d9624/transformed/navigation-runtime-ktx-2.7.7/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-compose:2.7.7] /Users/ilia/.gradle/caches/transforms-3/77bb0e88406e1fab41d439f40a9b8741/transformed/navigation-compose-2.7.7/AndroidManifest.xml:5:5-44
+MERGED from [androidx.navigation:navigation-compose:2.7.7] /Users/ilia/.gradle/caches/transforms-3/77bb0e88406e1fab41d439f40a9b8741/transformed/navigation-compose-2.7.7/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material3:material3-android:1.2.0] /Users/ilia/.gradle/caches/transforms-3/6010e2df1dd61e22a284ec8663e8bb29/transformed/material3-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material3:material3-android:1.2.0] /Users/ilia/.gradle/caches/transforms-3/6010e2df1dd61e22a284ec8663e8bb29/transformed/material3-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.material:material-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/c298b332fb52fdea42e178d9ca0d3133/transformed/material-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/c298b332fb52fdea42e178d9ca0d3133/transformed/material-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/90b6bb8199bae73697edb31907067e1c/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-core-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/90b6bb8199bae73697edb31907067e1c/transformed/material-icons-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-extended-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/09963c2a47de5e847a8cb610ae1ca081/transformed/material-icons-extended-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-icons-extended-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/09963c2a47de5e847a8cb610ae1ca081/transformed/material-icons-extended-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/5bd9093ea3ce9a8afacbe6fe87d8305f/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.material:material-ripple-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/5bd9093ea3ce9a8afacbe6fe87d8305f/transformed/material-ripple-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/33f6b8aa4718119a7409975315317682/transformed/foundation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/33f6b8aa4718119a7409975315317682/transformed/foundation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/a15c73194c622dcb830b3fb6fe566f01/transformed/foundation-layout-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.foundation:foundation-layout-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/a15c73194c622dcb830b3fb6fe566f01/transformed/foundation-layout-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/777d0bd2ef5a8df0821ade9a426794d6/transformed/animation-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-core-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/777d0bd2ef5a8df0821ade9a426794d6/transformed/animation-core-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/54353e09ce25cbaba58328e65a31189b/transformed/animation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.animation:animation-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/54353e09ce25cbaba58328e65a31189b/transformed/animation-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/a8a79969437bb0b3cb3c1be889212d39/transformed/ui-tooling-data-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-data-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/a8a79969437bb0b3cb3c1be889212d39/transformed/ui-tooling-data-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/a8a8e0153e8636056130e382dfd8ecdf/transformed/ui-unit-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-unit-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/a8a8e0153e8636056130e382dfd8ecdf/transformed/ui-unit-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/4f05b5865bcbfbbf945c8d8fdaaeb523/transformed/ui-text-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-text-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/4f05b5865bcbfbbf945c8d8fdaaeb523/transformed/ui-text-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/0e753d93a1d4616d2a56e3f587d7521a/transformed/ui-util-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-util-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/0e753d93a1d4616d2a56e3f587d7521a/transformed/ui-util-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/7833252080caa01a9d11c19a2bea44f3/transformed/ui-geometry-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-geometry-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/7833252080caa01a9d11c19a2bea44f3/transformed/ui-geometry-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/1c14f5486ccdf128c276e8396a26f6ab/transformed/ui-tooling-preview-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-preview-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/1c14f5486ccdf128c276e8396a26f6ab/transformed/ui-tooling-preview-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/701407e9e56b3008bdd61d8638d8a13a/transformed/ui-tooling-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-tooling-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/701407e9e56b3008bdd61d8638d8a13a/transformed/ui-tooling-release/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/096db8245c6c60ec31548be28c53174e/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-graphics-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/096db8245c6c60ec31548be28c53174e/transformed/ui-graphics-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-test-manifest:1.6.1] /Users/ilia/.gradle/caches/transforms-3/7f210969b09fe644c3648babaf9c7b5d/transformed/ui-test-manifest-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-test-manifest:1.6.1] /Users/ilia/.gradle/caches/transforms-3/7f210969b09fe644c3648babaf9c7b5d/transformed/ui-test-manifest-1.6.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.fragment:fragment:1.5.1] /Users/ilia/.gradle/caches/transforms-3/4dd1b3799b0120d78e0100fde3a38f76/transformed/fragment-1.5.1/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.fragment:fragment:1.5.1] /Users/ilia/.gradle/caches/transforms-3/4dd1b3799b0120d78e0100fde3a38f76/transformed/fragment-1.5.1/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.activity:activity:1.8.2] /Users/ilia/.gradle/caches/transforms-3/d0f86f9e9ebe7fa8eb070052a0014bb4/transformed/activity-1.8.2/AndroidManifest.xml:20:5-44
@@ -274,8 +274,8 @@ MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] /Users/ilia/.gradle
 MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] /Users/ilia/.gradle/caches/transforms-3/df0c1917b39d599082d996722bf51ee1/transformed/lifecycle-runtime-ktx-2.7.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0] /Users/ilia/.gradle/caches/transforms-3/769cff15d5d80322707de08734960f1e/transformed/lifecycle-viewmodel-compose-2.7.0/AndroidManifest.xml:5:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0] /Users/ilia/.gradle/caches/transforms-3/769cff15d5d80322707de08734960f1e/transformed/lifecycle-viewmodel-compose-2.7.0/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/32b89b96f7e2f2ce677d656179f3789f/transformed/ui-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.ui:ui-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/32b89b96f7e2f2ce677d656179f3789f/transformed/ui-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/576ccb08b83f8ab094d8a4eaea60d2b0/transformed/ui-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.ui:ui-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/576ccb08b83f8ab094d8a4eaea60d2b0/transformed/ui-release/AndroidManifest.xml:5:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/ilia/.gradle/caches/transforms-3/04f5095593c9906f591eb809364480a7/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] /Users/ilia/.gradle/caches/transforms-3/04f5095593c9906f591eb809364480a7/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.autofill:autofill:1.0.0] /Users/ilia/.gradle/caches/transforms-3/db418f30c16a060ae7fb874cb6d772f2/transformed/autofill-1.0.0/AndroidManifest.xml:20:5-22:41
@@ -290,14 +290,14 @@ MERGED from [androidx.core:core-ktx:1.12.0] /Users/ilia/.gradle/caches/transform
 MERGED from [androidx.core:core-ktx:1.12.0] /Users/ilia/.gradle/caches/transforms-3/e4733c3228f17e330b8f5090e3592660/transformed/core-ktx-1.12.0/AndroidManifest.xml:5:5-44
 MERGED from [androidx.datastore:datastore-preferences:1.0.0] /Users/ilia/.gradle/caches/transforms-3/55909c9186597d03faa57d7d9f1e1093/transformed/datastore-preferences-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.datastore:datastore-preferences:1.0.0] /Users/ilia/.gradle/caches/transforms-3/55909c9186597d03faa57d7d9f1e1093/transformed/datastore-preferences-1.0.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.annotation:annotation-experimental:1.3.1] /Users/ilia/.gradle/caches/transforms-3/b0b9c70eb1b808779188c749500c8195/transformed/annotation-experimental-1.3.1/AndroidManifest.xml:20:5-44
-MERGED from [androidx.annotation:annotation-experimental:1.3.1] /Users/ilia/.gradle/caches/transforms-3/b0b9c70eb1b808779188c749500c8195/transformed/annotation-experimental-1.3.1/AndroidManifest.xml:20:5-44
 MERGED from [androidx.datastore:datastore:1.0.0] /Users/ilia/.gradle/caches/transforms-3/12486575a825d821333be0ffebdcfb09/transformed/datastore-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.datastore:datastore:1.0.0] /Users/ilia/.gradle/caches/transforms-3/12486575a825d821333be0ffebdcfb09/transformed/datastore-1.0.0/AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.compose.runtime:runtime-saveable-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/d0f7f59dea65f6bcaf4f21bf06ad45bb/transformed/runtime-saveable-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.runtime:runtime-saveable-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/d0f7f59dea65f6bcaf4f21bf06ad45bb/transformed/runtime-saveable-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.runtime:runtime-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/251227eb53a63fcaa07df7a62b14fac4/transformed/runtime-release/AndroidManifest.xml:5:5-44
-MERGED from [androidx.compose.runtime:runtime-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/251227eb53a63fcaa07df7a62b14fac4/transformed/runtime-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/8ae199b5318ca7f6dec33683e1193ea7/transformed/runtime-saveable-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-saveable-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/8ae199b5318ca7f6dec33683e1193ea7/transformed/runtime-saveable-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/c3bdfee14bf292a23a65bbe59101fce1/transformed/runtime-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.compose.runtime:runtime-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/c3bdfee14bf292a23a65bbe59101fce1/transformed/runtime-release/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] /Users/ilia/.gradle/caches/transforms-3/367b6a6657fb7e82f0d3df40ef95b197/transformed/annotation-experimental-1.4.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] /Users/ilia/.gradle/caches/transforms-3/367b6a6657fb7e82f0d3df40ef95b197/transformed/annotation-experimental-1.4.0/AndroidManifest.xml:5:5-44
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/ilia/.gradle/caches/transforms-3/92bc21711a4b44e84eed0f5f0310abf5/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/ilia/.gradle/caches/transforms-3/92bc21711a4b44e84eed0f5f0310abf5/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.interpolator:interpolator:1.0.0] /Users/ilia/.gradle/caches/transforms-3/313cd9687036ecadcb39a03d0d8b25f8/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
@@ -317,17 +317,17 @@ MERGED from [com.google.dagger:dagger-lint-aar:2.50] /Users/ilia/.gradle/caches/
 	android:minSdkVersion
 		INJECTED from /Users/ilia/lumber-inventory/android_app/app/src/main/AndroidManifest.xml
 activity#androidx.compose.ui.tooling.PreviewActivity
-ADDED from [androidx.compose.ui:ui-tooling-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/cd7aa3974b9528bd4a0e3178eec1857b/transformed/ui-tooling-release/AndroidManifest.xml:23:9-25:39
+ADDED from [androidx.compose.ui:ui-tooling-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/701407e9e56b3008bdd61d8638d8a13a/transformed/ui-tooling-release/AndroidManifest.xml:23:9-25:39
 	android:exported
-		ADDED from [androidx.compose.ui:ui-tooling-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/cd7aa3974b9528bd4a0e3178eec1857b/transformed/ui-tooling-release/AndroidManifest.xml:25:13-36
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/701407e9e56b3008bdd61d8638d8a13a/transformed/ui-tooling-release/AndroidManifest.xml:25:13-36
 	android:name
-		ADDED from [androidx.compose.ui:ui-tooling-android:1.6.0] /Users/ilia/.gradle/caches/transforms-3/cd7aa3974b9528bd4a0e3178eec1857b/transformed/ui-tooling-release/AndroidManifest.xml:24:13-71
+		ADDED from [androidx.compose.ui:ui-tooling-android:1.6.1] /Users/ilia/.gradle/caches/transforms-3/701407e9e56b3008bdd61d8638d8a13a/transformed/ui-tooling-release/AndroidManifest.xml:24:13-71
 activity#androidx.activity.ComponentActivity
-ADDED from [androidx.compose.ui:ui-test-manifest:1.6.0] /Users/ilia/.gradle/caches/transforms-3/2a17f3b9208b40057ae1c753f9e8d8b9/transformed/ui-test-manifest-1.6.0/AndroidManifest.xml:23:9-25:39
+ADDED from [androidx.compose.ui:ui-test-manifest:1.6.1] /Users/ilia/.gradle/caches/transforms-3/7f210969b09fe644c3648babaf9c7b5d/transformed/ui-test-manifest-1.6.1/AndroidManifest.xml:23:9-25:39
 	android:exported
-		ADDED from [androidx.compose.ui:ui-test-manifest:1.6.0] /Users/ilia/.gradle/caches/transforms-3/2a17f3b9208b40057ae1c753f9e8d8b9/transformed/ui-test-manifest-1.6.0/AndroidManifest.xml:25:13-36
+		ADDED from [androidx.compose.ui:ui-test-manifest:1.6.1] /Users/ilia/.gradle/caches/transforms-3/7f210969b09fe644c3648babaf9c7b5d/transformed/ui-test-manifest-1.6.1/AndroidManifest.xml:25:13-36
 	android:name
-		ADDED from [androidx.compose.ui:ui-test-manifest:1.6.0] /Users/ilia/.gradle/caches/transforms-3/2a17f3b9208b40057ae1c753f9e8d8b9/transformed/ui-test-manifest-1.6.0/AndroidManifest.xml:24:13-63
+		ADDED from [androidx.compose.ui:ui-test-manifest:1.6.1] /Users/ilia/.gradle/caches/transforms-3/7f210969b09fe644c3648babaf9c7b5d/transformed/ui-test-manifest-1.6.1/AndroidManifest.xml:24:13-63
 provider#androidx.startup.InitializationProvider
 ADDED from [androidx.emoji2:emoji2:1.3.0] /Users/ilia/.gradle/caches/transforms-3/71564c579c417c9ed1fa1fe2f9bc5ef6/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
 MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] /Users/ilia/.gradle/caches/transforms-3/f95faf2b34bdc08e88a3992a9e26ce72/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:24:9-32:20
